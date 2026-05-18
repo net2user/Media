@@ -1,0 +1,488 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+ 
+  * { margin:0; padding:0; box-sizing:border-box; }
+ 
+  body {
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+  }
+ 
+  .svg-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+  }
+ 
+  .svg-container svg {
+    display: block;
+    min-width: 900px;   /* prevents collapse on mobile; pinch-zoom works */
+    width: 100%;
+    height: auto;
+  }
+ 
+  /* Animated flow lines */
+  @keyframes flowR { to { stroke-dashoffset: -24; } }
+  @keyframes flowL { to { stroke-dashoffset: 24; } }
+  @keyframes pulse { 0%,100%{opacity:0.2} 50%{opacity:0.6} }
+  @keyframes orbitPulse { 0%,100%{r:62;opacity:0.15} 50%{r:72;opacity:0.05} }
+  @keyframes hubGlow   { 0%,100%{opacity:0.4} 50%{opacity:0.8} }
+ 
+  .fr { stroke-dasharray:6 4; animation: flowR 1.4s linear infinite; }
+  .fl { stroke-dasharray:6 4; animation: flowL 1.4s linear infinite; }
+  .fr2{ stroke-dasharray:6 4; animation: flowR 2s linear infinite; }
+  .op { animation: orbitPulse 3s ease-in-out infinite; }
+  .hg { animation: hubGlow 2.5s ease-in-out infinite; }
+</style>
+</head>
+<body>
+<div class="svg-container">
+<svg viewBox="0 0 1200 820" xmlns="http://www.w3.org/2000/svg" font-family="Inter, sans-serif">
+ 
+  <!-- ══════════════════════════════════════════
+       BACKGROUND
+  ══════════════════════════════════════════ -->
+  <rect width="1200" height="820" fill="#ffffff"/>
+ 
+  <!-- ══════════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════════ -->
+  <text x="600" y="46" text-anchor="middle" font-size="34" font-weight="900" fill="#1a2f6e">The Hidden Cost of Fragmented Intelligence</text>
+  <text x="600" y="74" text-anchor="middle" font-size="16" font-weight="400" fill="#1a1a1a">Disconnected decisions. Compounding consequences.</text>
+ 
+  <!-- Tagline box -->
+  <rect x="280" y="86" width="640" height="34" rx="6" fill="#fff" stroke="#d0d0d0" stroke-width="1.5"/>
+  <text x="600" y="108" text-anchor="middle" font-size="14" font-weight="500" fill="#1a1a1a">More dashboards. Less clarity. Local optimization. <tspan font-weight="700" fill="#EA4335">System-wide loss.</tspan></text>
+ 
+  <!-- Gradient separator bar -->
+  <defs>
+    <linearGradient id="bar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#4285F4"/>
+      <stop offset="33%"  stop-color="#EA4335"/>
+      <stop offset="66%"  stop-color="#FBBC05"/>
+      <stop offset="100%" stop-color="#34A853"/>
+    </linearGradient>
+    <!-- Flow gradients for curved arrows -->
+    <linearGradient id="flowLR" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#34A853" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4285F4" stop-opacity="0.3"/>
+    </linearGradient>
+    <linearGradient id="flowRL" x1="100%" y1="0%" x2="0%" y2="0%">
+      <stop offset="0%"   stop-color="#34A853" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#4285F4" stop-opacity="0.3"/>
+    </linearGradient>
+    <!-- Hub radial -->
+    <radialGradient id="hubBg" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#dbeafe"/>
+      <stop offset="100%" stop-color="#eff6ff"/>
+    </radialGradient>
+    <radialGradient id="hubCore" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#bfdbfe"/>
+      <stop offset="100%" stop-color="#dbeafe"/>
+    </radialGradient>
+  </defs>
+ 
+  <rect x="80" y="130" width="1040" height="4" rx="2" fill="url(#bar)"/>
+ 
+  <!-- ══════════════════════════════════════════
+       COLUMN HEADERS
+  ══════════════════════════════════════════ -->
+  <!-- Left header -->
+  <text x="148" y="154" text-anchor="middle" font-size="12" font-weight="800" fill="#EA4335" letter-spacing="0.5">FRAGMENTED INTELLIGENCE</text>
+  <text x="148" y="168" text-anchor="middle" font-size="11" font-weight="400" fill="#1a1a1a">Siloed functions. Local optimization.</text>
+ 
+  <!-- Middle header -->
+  <text x="455" y="154" text-anchor="middle" font-size="12" font-weight="800" fill="#EA4335" letter-spacing="0.5">LOCAL DECISIONS TRIGGER</text>
+  <text x="455" y="168" text-anchor="middle" font-size="12" font-weight="800" fill="#EA4335" letter-spacing="0.5">SYSTEM-WIDE CONSEQUENCES</text>
+ 
+  <!-- Right header -->
+  <text x="1050" y="154" text-anchor="middle" font-size="12" font-weight="800" fill="#1a2f6e" letter-spacing="0.5">AI-DRIVEN ORCHESTRATION</text>
+  <text x="1050" y="168" text-anchor="middle" font-size="11" font-weight="400" fill="#1a1a1a">One source of truth. Unified outcomes.</text>
+ 
+  <!-- ══════════════════════════════════════════
+       FLOW CURVES  (left → center, center → right)
+       Multi-strand wavy ribbons like original
+  ══════════════════════════════════════════ -->
+  <!-- Green strand: Sustainability -->
+  <path d="M248 228 C340 228 360 305 450 305" fill="none" stroke="#34A853" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <!-- Blue strand: Operations -->
+  <path d="M248 314 C340 314 360 345 450 345" fill="none" stroke="#4285F4" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <!-- Purple strand: Procurement -->
+  <path d="M248 400 C340 400 360 385 450 385" fill="none" stroke="#7c3aed" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <!-- Orange strand: Finance -->
+  <path d="M248 487 C340 487 360 430 450 430" fill="none" stroke="#f97316" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <!-- Teal strand: Compliance -->
+  <path d="M248 573 C340 573 360 480 450 480" fill="none" stroke="#0891b2" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+ 
+  <!-- Right-side flow strands: center → right outcomes -->
+  <path d="M750 305 C840 305 860 258 950 258" fill="none" stroke="#34A853" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <path d="M750 345 C840 345 860 328 950 328" fill="none" stroke="#4285F4" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <path d="M750 385 C840 385 860 398 950 398" fill="none" stroke="#f97316" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <path d="M750 430 C840 430 860 468 950 468" fill="none" stroke="#f97316" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+  <path d="M750 480 C840 480 860 538 950 538" fill="none" stroke="#0891b2" stroke-width="1.2" stroke-opacity="0.5" class="fr2"/>
+ 
+  <!-- ══════════════════════════════════════════
+       LEFT COLUMN — SILO CARDS
+  ══════════════════════════════════════════ -->
+ 
+  <!-- Helper macro: each card is a rounded rect with icon circle + title + desc + mini bars -->
+ 
+  <!-- SUSTAINABILITY -->
+  <rect x="28" y="186" width="220" height="70" rx="8" fill="#fff" stroke="#d0d0d0" stroke-width="1.2"/>
+  <circle cx="62" cy="221" r="20" fill="rgba(52,168,83,0.12)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="62" y="226" text-anchor="middle" font-size="16">🌿</text>
+  <text x="90" y="210" font-size="11" font-weight="800" fill="#34A853">SUSTAINABILITY</text>
+  <text x="90" y="226" font-size="10" fill="#1a1a1a">Minimize reported</text>
+  <text x="90" y="239" font-size="10" fill="#1a1a1a">emissions</text>
+  <!-- mini bars -->
+  <rect x="196" y="206" width="40" height="5" rx="2" fill="rgba(52,168,83,0.25)"/>
+  <rect x="196" y="214" width="32" height="5" rx="2" fill="rgba(52,168,83,0.5)"/>
+  <rect x="196" y="222" width="40" height="5" rx="2" fill="#34A853"/>
+  <rect x="196" y="230" width="28" height="5" rx="2" fill="rgba(52,168,83,0.6)"/>
+ 
+  <!-- OPERATIONS -->
+  <rect x="28" y="274" width="220" height="70" rx="8" fill="#fff" stroke="#d0d0d0" stroke-width="1.2"/>
+  <circle cx="62" cy="309" r="20" fill="rgba(66,133,244,0.12)" stroke="#4285F4" stroke-width="1.5"/>
+  <text x="62" y="314" text-anchor="middle" font-size="16">⚙️</text>
+  <text x="90" y="298" font-size="11" font-weight="800" fill="#4285F4">OPERATIONS</text>
+  <text x="90" y="314" font-size="10" fill="#1a1a1a">Maximize throughput</text>
+  <text x="90" y="327" font-size="10" fill="#1a1a1a">&amp; uptime</text>
+  <rect x="196" y="294" width="32" height="5" rx="2" fill="rgba(66,133,244,0.3)"/>
+  <rect x="196" y="302" width="40" height="5" rx="2" fill="rgba(66,133,244,0.55)"/>
+  <rect x="196" y="310" width="28" height="5" rx="2" fill="#4285F4"/>
+  <rect x="196" y="318" width="36" height="5" rx="2" fill="rgba(66,133,244,0.4)"/>
+ 
+  <!-- PROCUREMENT -->
+  <rect x="28" y="362" width="220" height="70" rx="8" fill="#fff" stroke="#d0d0d0" stroke-width="1.2"/>
+  <circle cx="62" cy="397" r="20" fill="rgba(124,58,237,0.12)" stroke="#7c3aed" stroke-width="1.5"/>
+  <text x="62" y="403" text-anchor="middle" font-size="16">🛒</text>
+  <text x="90" y="386" font-size="11" font-weight="800" fill="#7c3aed">PROCUREMENT</text>
+  <text x="90" y="402" font-size="10" fill="#1a1a1a">Lowest cost fuel</text>
+  <text x="90" y="415" font-size="10" fill="#1a1a1a">or power</text>
+  <rect x="196" y="382" width="28" height="5" rx="2" fill="rgba(124,58,237,0.3)"/>
+  <rect x="196" y="390" width="40" height="5" rx="2" fill="rgba(124,58,237,0.55)"/>
+  <rect x="196" y="398" width="34" height="5" rx="2" fill="#7c3aed"/>
+  <rect x="196" y="406" width="22" height="5" rx="2" fill="rgba(124,58,237,0.4)"/>
+ 
+  <!-- FINANCE -->
+  <rect x="28" y="450" width="220" height="70" rx="8" fill="#fff" stroke="#d0d0d0" stroke-width="1.2"/>
+  <circle cx="62" cy="485" r="20" fill="rgba(249,115,22,0.12)" stroke="#f97316" stroke-width="1.5"/>
+  <text x="62" y="491" text-anchor="middle" font-size="14" font-weight="700" fill="#f97316">₹</text>
+  <text x="90" y="474" font-size="11" font-weight="800" fill="#f97316">FINANCE</text>
+  <text x="90" y="490" font-size="10" fill="#1a1a1a">Optimize profitability</text>
+  <text x="90" y="503" font-size="10" fill="#1a1a1a">&amp; cash flows</text>
+  <!-- pie chart mini -->
+  <circle cx="210" cy="485" r="14" fill="none" stroke="#f97316" stroke-width="12" stroke-dasharray="22 66" stroke-dashoffset="22" transform="rotate(-90 210 485)" opacity="0.7"/>
+  <circle cx="210" cy="485" r="14" fill="none" stroke="#FBBC05" stroke-width="12" stroke-dasharray="44 66" stroke-dashoffset="0" transform="rotate(36 210 485)" opacity="0.5"/>
+ 
+  <!-- COMPLIANCE -->
+  <rect x="28" y="538" width="220" height="70" rx="8" fill="#fff" stroke="#d0d0d0" stroke-width="1.2"/>
+  <circle cx="62" cy="573" r="20" fill="rgba(8,145,178,0.12)" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="62" y="579" text-anchor="middle" font-size="16">🛡️</text>
+  <text x="90" y="562" font-size="11" font-weight="800" fill="#0891b2">COMPLIANCE</text>
+  <text x="90" y="578" font-size="10" fill="#1a1a1a">Meet regulatory</text>
+  <text x="90" y="591" font-size="10" fill="#1a1a1a">obligations</text>
+  <!-- check list mini -->
+  <rect x="196" y="558" width="36" height="6" rx="2" fill="rgba(8,145,178,0.15)" stroke="#0891b2" stroke-width="0.8"/>
+  <text x="200" y="564" font-size="7" fill="#0891b2">✓</text>
+  <rect x="196" y="568" width="36" height="6" rx="2" fill="rgba(8,145,178,0.15)" stroke="#0891b2" stroke-width="0.8"/>
+  <text x="200" y="574" font-size="7" fill="#0891b2">✓</text>
+  <rect x="196" y="578" width="36" height="6" rx="2" fill="rgba(8,145,178,0.15)" stroke="#0891b2" stroke-width="0.8"/>
+  <text x="200" y="584" font-size="7" fill="#0891b2">✓</text>
+ 
+  <!-- ══════════════════════════════════════════
+       MIDDLE-LEFT — CONSEQUENCE CARDS
+  ══════════════════════════════════════════ -->
+ 
+  <!-- Card 1: Higher fuel cost cutting -->
+  <rect x="310" y="186" width="210" height="74" rx="8" fill="#fff9f9" stroke="rgba(234,67,53,0.3)" stroke-width="1.2"/>
+  <circle cx="340" cy="218" r="18" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="340" y="224" text-anchor="middle" font-size="15">🏭</text>
+  <text x="366" y="207" font-size="11" font-weight="700" fill="#1a1a1a">Higher fuel cost cutting</text>
+  <text x="366" y="222" font-size="10" fill="#1a1a1a"><tspan font-weight="600" fill="#EA4335">↑</tspan> Energy intensity</text>
+  <text x="366" y="236" font-size="10" fill="#1a1a1a"><tspan font-weight="600" fill="#EA4335">↑</tspan> Scope 1 emissions</text>
+  <text x="366" y="250" font-size="9.5" fill="#888">— — — — — — — — — —</text>
+ 
+  <!-- Card 2: Supply chain -->
+  <rect x="310" y="272" width="210" height="60" rx="8" fill="#fff9f9" stroke="rgba(234,67,53,0.3)" stroke-width="1.2"/>
+  <circle cx="340" cy="302" r="18" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="340" y="308" text-anchor="middle" font-size="13">🌫️</text>
+  <text x="366" y="293" font-size="11" font-weight="700" fill="#1a1a1a">Supply chain emissions rise</text>
+  <text x="366" y="309" font-size="10" fill="#1a1a1a"><tspan font-weight="600" fill="#EA4335">↓</tspan> Scope 3 visibility</text>
+ 
+  <!-- Card 3: Embedded emissions -->
+  <rect x="310" y="344" width="210" height="80" rx="8" fill="#fff9f9" stroke="rgba(234,67,53,0.35)" stroke-width="1.5"/>
+  <circle cx="340" cy="380" r="18" fill="rgba(234,67,53,0.12)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="340" y="386" text-anchor="middle" font-size="14">🌍</text>
+  <text x="366" y="359" font-size="11" font-weight="700" fill="#1a1a1a">Embedded emissions rise</text>
+  <text x="366" y="375" font-size="10" fill="#1a1a1a"><tspan font-weight="600" fill="#EA4335">↑</tspan> CBAM exposure</text>
+  <text x="366" y="389" font-size="10" fill="#1a1a1a">$60–$165/tonne</text>
+  <text x="366" y="403" font-size="10" fill="#1a1a1a">margin erosion</text>
+ 
+  <!-- Card 4: Weaker ESG -->
+  <rect x="310" y="436" width="210" height="64" rx="8" fill="#fff9f9" stroke="rgba(234,67,53,0.3)" stroke-width="1.2"/>
+  <circle cx="340" cy="464" r="18" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="340" y="470" text-anchor="middle" font-size="14">🏛️</text>
+  <text x="366" y="453" font-size="11" font-weight="700" fill="#1a1a1a">Weaker ESG scores</text>
+  <text x="366" y="469" font-size="10" fill="#1a1a1a">Higher cost of capital</text>
+  <text x="366" y="483" font-size="10" fill="#1a1a1a">&amp; financing spreads</text>
+ 
+  <!-- Card 5: Higher baseline -->
+  <rect x="310" y="512" width="210" height="60" rx="8" fill="#fff9f9" stroke="rgba(234,67,53,0.3)" stroke-width="1.2"/>
+  <circle cx="340" cy="540" r="18" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="340" y="546" text-anchor="middle" font-size="14">📉</text>
+  <text x="366" y="531" font-size="11" font-weight="700" fill="#1a1a1a">Higher baseline</text>
+  <text x="366" y="547" font-size="10" fill="#1a1a1a">Future carbon credit</text>
+  <text x="366" y="561" font-size="10" fill="#1a1a1a">economics worsen</text>
+ 
+  <!-- ══════════════════════════════════════════
+       CENTER HUB
+  ══════════════════════════════════════════ -->
+ 
+  <!-- Outer dashed orbit -->
+  <circle cx="728" cy="388" r="148" fill="none" stroke="#4285F4" stroke-width="1.2" stroke-dasharray="6 5" opacity="0.4"/>
+  <!-- Pulsing ring -->
+  <circle cx="728" cy="388" r="108" fill="rgba(219,234,254,0.3)" stroke="rgba(66,133,244,0.2)" stroke-width="1" class="op"/>
+  <!-- Hub background -->
+  <circle cx="728" cy="388" r="90" fill="url(#hubBg)" stroke="#4285F4" stroke-width="2"/>
+  <circle cx="728" cy="388" r="68" fill="url(#hubCore)" stroke="rgba(66,133,244,0.4)" stroke-width="1"/>
+ 
+  <!-- Hub text -->
+  <text x="728" y="372" text-anchor="middle" font-size="20" font-weight="900" fill="#1a2f6e">AI NATIVE</text>
+  <text x="728" y="390" text-anchor="middle" font-size="11.5" font-weight="600" fill="#4285F4">Orchestration Layer</text>
+  <text x="728" y="406" text-anchor="middle" font-size="10" fill="#1a1a1a">Unify · Correlate · Predict</text>
+  <text x="728" y="420" text-anchor="middle" font-size="10" fill="#1a1a1a">Optimize · Comply</text>
+ 
+  <!-- Satellite: Unified Decisioning (top) -->
+  <line x1="728" y1="240" x2="728" y2="298" stroke="#4285F4" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="728" cy="218" r="28" fill="rgba(66,133,244,0.08)" stroke="#4285F4" stroke-width="1.5"/>
+  <!-- Blue sphere gradient -->
+  <circle cx="728" cy="218" r="22" fill="#4285F4" opacity="0.85"/>
+  <circle cx="720" cy="210" r="7" fill="rgba(255,255,255,0.4)"/>
+  <text x="728" y="258" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Unified</text>
+  <text x="728" y="271" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Decisioning</text>
+  <!-- Arrow -->
+  <polygon points="722,244 728,256 734,244" fill="#4285F4" opacity="0.6"/>
+ 
+  <!-- Satellite: Real-time Forecasting (left) -->
+  <line x1="580" y1="340" x2="638" y2="365" stroke="#34A853" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="558" cy="328" r="24" fill="rgba(52,168,83,0.1)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="558" y="334" text-anchor="middle" font-size="18">☁️</text>
+  <text x="552" y="360" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Real-time</text>
+  <text x="552" y="373" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Forecasting</text>
+ 
+  <!-- Satellite: Consistent Reporting (right) -->
+  <line x1="818" y1="348" x2="872" y2="330" stroke="#FBBC05" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="894" cy="318" r="24" fill="rgba(251,188,5,0.1)" stroke="#FBBC05" stroke-width="1.5"/>
+  <text x="894" y="324" text-anchor="middle" font-size="18">📋</text>
+  <text x="898" y="350" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Consistent</text>
+  <text x="898" y="363" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Reporting</text>
+ 
+  <!-- Satellite: Financial Intelligence (bottom-left) -->
+  <line x1="612" y1="438" x2="640" y2="420" stroke="#EA4335" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="582" cy="458" r="24" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="582" y="465" text-anchor="middle" font-size="16" font-weight="700" fill="#EA4335">₹</text>
+  <text x="580" y="490" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Financial</text>
+  <text x="580" y="503" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Intelligence</text>
+ 
+  <!-- Satellite: Compliance by Design (bottom-right) -->
+  <line x1="820" y1="432" x2="864" y2="440" stroke="#34A853" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="888" cy="460" r="24" fill="rgba(52,168,83,0.1)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="888" y="467" text-anchor="middle" font-size="17">✅</text>
+  <text x="890" y="492" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Compliance</text>
+  <text x="890" y="505" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">by Design</text>
+ 
+  <!-- Satellite: Performance & Risk (bottom-center) -->
+  <line x1="728" y1="478" x2="728" y2="520" stroke="#EA4335" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
+  <circle cx="728" cy="546" r="24" fill="rgba(234,67,53,0.1)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="728" y="553" text-anchor="middle" font-size="17">📈</text>
+  <text x="728" y="578" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">Performance</text>
+  <text x="728" y="591" text-anchor="middle" font-size="10" font-weight="600" fill="#1a1a1a">&amp; Risk Analytics</text>
+ 
+  <!-- ══════════════════════════════════════════
+       RIGHT COLUMN — OUTCOME CARDS
+  ══════════════════════════════════════════ -->
+ 
+  <!-- Aligned Decisions -->
+  <rect x="952" y="186" width="220" height="70" rx="8" fill="#f0fdf4" stroke="rgba(52,168,83,0.3)" stroke-width="1.2"/>
+  <circle cx="980" cy="221" r="18" fill="rgba(66,133,244,0.12)" stroke="#4285F4" stroke-width="1.5"/>
+  <text x="980" y="227" text-anchor="middle" font-size="15">🎯</text>
+  <text x="1005" y="208" font-size="11" font-weight="800" fill="#4285F4">Aligned Decisions</text>
+  <text x="1005" y="224" font-size="10" fill="#1a1a1a">Across functions</text>
+  <text x="1005" y="237" font-size="10" fill="#1a1a1a">&amp; objectives</text>
+  <rect x="1124" y="204" width="36" height="5" rx="2" fill="rgba(66,133,244,0.3)"/>
+  <rect x="1124" y="212" width="28" height="5" rx="2" fill="rgba(66,133,244,0.55)"/>
+  <rect x="1124" y="220" width="36" height="5" rx="2" fill="#4285F4"/>
+  <rect x="1124" y="228" width="22" height="5" rx="2" fill="rgba(66,133,244,0.35)"/>
+ 
+  <!-- Accurate Forecasting -->
+  <rect x="952" y="266" width="220" height="70" rx="8" fill="#f0fdf4" stroke="rgba(52,168,83,0.3)" stroke-width="1.2"/>
+  <circle cx="980" cy="301" r="18" fill="rgba(52,168,83,0.12)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="980" y="307" text-anchor="middle" font-size="14">📈</text>
+  <text x="1005" y="289" font-size="11" font-weight="800" fill="#4285F4">Accurate Forecasting</text>
+  <text x="1005" y="305" font-size="10" fill="#1a1a1a">Higher accuracy,</text>
+  <text x="1005" y="319" font-size="10" fill="#1a1a1a">lower deviation</text>
+  <!-- upward line mini chart -->
+  <polyline points="1126,328 1134,316 1142,320 1150,306 1158,295" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="1158" cy="295" r="3" fill="#34A853"/>
+ 
+  <!-- End-to-End Visibility -->
+  <rect x="952" y="346" width="220" height="70" rx="8" fill="#f0fdf4" stroke="rgba(52,168,83,0.3)" stroke-width="1.2"/>
+  <circle cx="980" cy="381" r="18" fill="rgba(8,145,178,0.12)" stroke="#0891b2" stroke-width="1.5"/>
+  <text x="980" y="387" text-anchor="middle" font-size="15">🔗</text>
+  <text x="1005" y="368" font-size="11" font-weight="800" fill="#1a1a1a">End-to-End Visibility</text>
+  <text x="1005" y="384" font-size="10" fill="#1a1a1a">Full carbon &amp; operational</text>
+  <text x="1005" y="398" font-size="10" fill="#1a1a1a">traceability</text>
+  <rect x="1124" y="364" width="36" height="5" rx="2" fill="rgba(8,145,178,0.3)"/>
+  <rect x="1124" y="372" width="28" height="5" rx="2" fill="rgba(8,145,178,0.55)"/>
+  <rect x="1124" y="380" width="36" height="5" rx="2" fill="#0891b2"/>
+  <rect x="1124" y="388" width="22" height="5" rx="2" fill="rgba(8,145,178,0.35)"/>
+ 
+  <!-- Optimized Economics -->
+  <rect x="952" y="426" width="220" height="70" rx="8" fill="#f0fdf4" stroke="rgba(52,168,83,0.3)" stroke-width="1.2"/>
+  <circle cx="980" cy="461" r="18" fill="rgba(249,115,22,0.12)" stroke="#f97316" stroke-width="1.5"/>
+  <text x="980" y="467" text-anchor="middle" font-size="14" font-weight="700" fill="#f97316">₹</text>
+  <text x="1005" y="449" font-size="11" font-weight="800" fill="#f97316">Optimized Economics</text>
+  <text x="1005" y="465" font-size="10" fill="#1a1a1a">Lower penalties,</text>
+  <text x="1005" y="479" font-size="10" fill="#1a1a1a">better margins</text>
+  <!-- upward bar mini -->
+  <rect x="1126" y="478" width="7" height="12" rx="1" fill="rgba(249,115,22,0.4)"/>
+  <rect x="1136" y="470" width="7" height="20" rx="1" fill="rgba(249,115,22,0.6)"/>
+  <rect x="1146" y="460" width="7" height="30" rx="1" fill="#f97316"/>
+ 
+  <!-- Built-in Compliance -->
+  <rect x="952" y="506" width="220" height="70" rx="8" fill="#f0fdf4" stroke="rgba(52,168,83,0.3)" stroke-width="1.2"/>
+  <circle cx="980" cy="541" r="18" fill="rgba(52,168,83,0.12)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="980" y="547" text-anchor="middle" font-size="15">🛡️</text>
+  <text x="1005" y="529" font-size="11" font-weight="800" fill="#1a1a1a">Built-in Compliance</text>
+  <text x="1005" y="545" font-size="10" fill="#1a1a1a">Regulations embedded</text>
+  <text x="1005" y="559" font-size="10" fill="#1a1a1a">in operations</text>
+  <rect x="1124" y="525" width="36" height="6" rx="2" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="0.8"/>
+  <text x="1128" y="531" font-size="8" fill="#34A853">✓</text>
+  <rect x="1124" y="535" width="36" height="6" rx="2" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="0.8"/>
+  <text x="1128" y="541" font-size="8" fill="#34A853">✓</text>
+  <rect x="1124" y="545" width="36" height="6" rx="2" fill="rgba(52,168,83,0.15)" stroke="#34A853" stroke-width="0.8"/>
+  <text x="1128" y="551" font-size="8" fill="#34A853">✓</text>
+ 
+  <!-- Sustainability & Value -->
+  <rect x="952" y="586" width="220" height="70" rx="8" fill="#f0fdf4" stroke="rgba(52,168,83,0.3)" stroke-width="1.2"/>
+  <circle cx="980" cy="621" r="18" fill="rgba(52,168,83,0.12)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="980" y="627" text-anchor="middle" font-size="15">🌿</text>
+  <text x="1005" y="609" font-size="11" font-weight="800" fill="#34A853">Sustainability &amp; Value</text>
+  <text x="1005" y="625" font-size="10" fill="#1a1a1a">Lower carbon, stronger</text>
+  <text x="1005" y="639" font-size="10" fill="#1a1a1a">ESG, long-term value</text>
+  <!-- upward line mini -->
+  <polyline points="1126,648 1134,636 1142,640 1150,626 1158,614" fill="none" stroke="#34A853" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="1158" cy="614" r="3" fill="#34A853"/>
+ 
+  <!-- ══════════════════════════════════════════
+       COORDINATION DEBT SECTION
+  ══════════════════════════════════════════ -->
+  <rect x="28" y="626" width="894" height="88" rx="8" fill="#fafafa" stroke="#e0e0e0" stroke-width="1.2"/>
+ 
+  <text x="460" y="646" text-anchor="middle" font-size="12" font-weight="800" fill="#EA4335" letter-spacing="0.5">THE HIDDEN COST: COORDINATION DEBT</text>
+ 
+  <!-- Item 1 -->
+  <circle cx="80" cy="690" r="16" fill="rgba(251,188,5,0.12)" stroke="#FBBC05" stroke-width="1.5"/>
+  <text x="80" y="695" text-anchor="middle" font-size="13">⚠️</text>
+  <text x="80" y="712" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Conflicting</text>
+  <text x="80" y="723" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Assumptions</text>
+  <text x="80" y="700" text-anchor="middle" font-size="0" fill="none"/>
+  <!-- desc below title -->
+  <text x="80" y="654" text-anchor="middle" font-size="9" fill="#1a1a1a">Different models,</text>
+  <text x="80" y="664" text-anchor="middle" font-size="9" fill="#1a1a1a">different truths</text>
+ 
+  <!-- Item 2 -->
+  <circle cx="244" cy="690" r="16" fill="rgba(234,67,53,0.12)" stroke="#EA4335" stroke-width="1.5"/>
+  <text x="244" y="695" text-anchor="middle" font-size="13">⏱️</text>
+  <text x="244" y="654" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Forecasting</text>
+  <text x="244" y="665" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Drift</text>
+  <text x="244" y="710" text-anchor="middle" font-size="9" fill="#1a1a1a">Inaccurate forecasts</text>
+  <text x="244" y="720" text-anchor="middle" font-size="9" fill="#1a1a1a">lead to penalties</text>
+ 
+  <!-- Item 3 -->
+  <circle cx="410" cy="690" r="16" fill="rgba(66,133,244,0.12)" stroke="#4285F4" stroke-width="1.5"/>
+  <text x="410" y="695" text-anchor="middle" font-size="13">📄</text>
+  <text x="410" y="654" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Inconsistent</text>
+  <text x="410" y="665" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Reporting</text>
+  <text x="410" y="710" text-anchor="middle" font-size="9" fill="#1a1a1a">Data conflicts,</text>
+  <text x="410" y="720" text-anchor="middle" font-size="9" fill="#1a1a1a">audit risk</text>
+ 
+  <!-- Item 4 -->
+  <circle cx="576" cy="690" r="16" fill="rgba(249,115,22,0.12)" stroke="#f97316" stroke-width="1.5"/>
+  <text x="576" y="695" text-anchor="middle" font-size="13">📉</text>
+  <text x="576" y="654" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Financial</text>
+  <text x="576" y="665" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Leakage</text>
+  <text x="576" y="710" text-anchor="middle" font-size="9" fill="#1a1a1a">Penalties, margin</text>
+  <text x="576" y="720" text-anchor="middle" font-size="9" fill="#1a1a1a">erosion, higher costs</text>
+ 
+  <!-- Item 5 -->
+  <circle cx="742" cy="690" r="16" fill="rgba(52,168,83,0.12)" stroke="#34A853" stroke-width="1.5"/>
+  <text x="742" y="695" text-anchor="middle" font-size="13">⏳</text>
+  <text x="742" y="654" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Strategic</text>
+  <text x="742" y="665" text-anchor="middle" font-size="9.5" font-weight="700" fill="#1a1a1a">Paralysis</text>
+  <text x="742" y="710" text-anchor="middle" font-size="9" fill="#1a1a1a">Slow decisions,</text>
+  <text x="742" y="720" text-anchor="middle" font-size="9" fill="#1a1a1a">missed opportunities</text>
+ 
+  <!-- ══════════════════════════════════════════
+       SIGNATURE — middle band
+  ══════════════════════════════════════════ -->
+  <rect x="28" y="718" width="1144" height="16" rx="3" fill="rgba(66,133,244,0.04)" stroke="rgba(66,133,244,0.12)" stroke-width="0.8"/>
+  <text x="600" y="729" text-anchor="middle" font-size="7.5" fill="#1a1a1a" font-family="'Share Tech Mono', monospace" font-weight="600">
+    Created by  ·  Connect on LinkedIn: linkedin.com/in/sharma1vikas  |  Follow the deeper analysis on Digitalwalk: vikas-sharma-digitalwalk.blogspot.com  |  Follow on X: @digitalwalk
+  </text>
+ 
+  <!-- ══════════════════════════════════════════
+       BOTTOM STRIP
+  ══════════════════════════════════════════ -->
+  <rect x="28" y="738" width="1144" height="64" rx="8" fill="rgba(66,133,244,0.05)" stroke="rgba(66,133,244,0.25)" stroke-width="1.5"/>
+ 
+  <!-- Brain icon -->
+  <circle cx="70" cy="770" r="20" fill="rgba(66,133,244,0.1)" stroke="#4285F4" stroke-width="1.5"/>
+  <text x="70" y="776" text-anchor="middle" font-size="18">🧠</text>
+ 
+  <!-- Tagline text -->
+  <text x="280" y="763" text-anchor="middle" font-size="12.5" fill="#1a1a1a">The next generation enterprise platform is not a system of record.</text>
+  <text x="280" y="781" text-anchor="middle" font-size="13.5" font-weight="800" fill="#1a2f6e">It is a system of <tspan fill="#4285F4">coordinated intelligence.</tspan></text>
+ 
+  <!-- Chain: Operations → Carbon → Grid → Compliance → Finance → One Intelligence Fabric -->
+  <!-- Ops -->
+  <circle cx="580" cy="764" r="16" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1.2"/>
+  <text x="580" y="770" text-anchor="middle" font-size="13">⚙️</text>
+  <text x="580" y="791" text-anchor="middle" font-size="9" font-weight="600" fill="#1a1a1a">Operations</text>
+  <text x="602" y="769" font-size="14" fill="#4285F4" font-weight="700">→</text>
+ 
+  <!-- Carbon -->
+  <circle cx="640" cy="764" r="16" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1.2"/>
+  <text x="640" y="770" text-anchor="middle" font-size="13">🌿</text>
+  <text x="640" y="791" text-anchor="middle" font-size="9" font-weight="600" fill="#1a1a1a">Carbon</text>
+  <text x="662" y="769" font-size="14" fill="#4285F4" font-weight="700">→</text>
+ 
+  <!-- Grid -->
+  <circle cx="700" cy="764" r="16" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1.2"/>
+  <text x="700" y="770" text-anchor="middle" font-size="13">⚡</text>
+  <text x="700" y="791" text-anchor="middle" font-size="9" font-weight="600" fill="#1a1a1a">Grid</text>
+  <text x="722" y="769" font-size="14" fill="#4285F4" font-weight="700">→</text>
+ 
+  <!-- Compliance -->
+  <circle cx="760" cy="764" r="16" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1.2"/>
+  <text x="760" y="770" text-anchor="middle" font-size="13">🛡️</text>
+  <text x="760" y="791" text-anchor="middle" font-size="9" font-weight="600" fill="#1a1a1a">Compliance</text>
+  <text x="786" y="769" font-size="14" fill="#4285F4" font-weight="700">→</text>
+ 
+  <!-- Finance -->
+  <circle cx="820" cy="764" r="16" fill="#f8f9fa" stroke="#e0e0e0" stroke-width="1.2"/>
+  <text x="820" y="770" text-anchor="middle" font-size="13" font-weight="700" fill="#f97316">₹</text>
+  <text x="820" y="791" text-anchor="middle" font-size="9" font-weight="600" fill="#1a1a1a">Finance</text>
+  <text x="842" y="769" font-size="14" fill="#4285F4" font-weight="700">→</text>
+ 
+  <!-- One Intelligence Fabric -->
+  <text x="926" y="759" text-anchor="middle" font-size="13" font-weight="900" fill="#4285F4">One</text>
+  <text x="926" y="773" text-anchor="middle" font-size="13" font-weight="900" fill="#4285F4">Intelligence</text>
+  <text x="926" y="787" text-anchor="middle" font-size="13" font-weight="900" fill="#4285F4">Fabric</text>
+ 
+  <!-- Attribution -->
+  <text x="1170" y="798" text-anchor="end" font-size="10.5" font-weight="600" fill="#1a1a1a">Vikas Sharma</text>
+ 
+</svg>
