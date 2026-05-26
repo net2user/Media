@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story 3 Animated – Dual-Use AI Financial System</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    background:#F1F5F9;
+    display:flex; justify-content:center; align-items:center;
+    min-height:100vh; padding:20px;
+  }
+  .wrap { width:1200px; max-width:100%; }
+  svg {
+    display:block; width:100%; height:auto;
+    border-radius:14px;
+    box-shadow:0 4px 32px rgba(0,0,0,.12);
+  }
+
+  /* ── Staggered fade-in ── */
+  .fi { opacity:0; animation: fadeIn .55s ease forwards; }
+  @keyframes fadeIn { to { opacity:1; } }
+  .d1{animation-delay:.1s} .d2{animation-delay:.35s} .d3{animation-delay:.6s}
+  .d4{animation-delay:.85s} .d5{animation-delay:1.1s} .d6{animation-delay:1.35s}
+  .d7{animation-delay:1.6s} .d8{animation-delay:1.85s} .d9{animation-delay:2.1s}
+
+  /* ── Flowing dashed lines ── */
+  /* Flow direction: positive offset = leftward/upward; negative = rightward/downward */
+  @keyframes flowRight { to { stroke-dashoffset: -40; } }
+  @keyframes flowLeft  { to { stroke-dashoffset:  40; } }
+  @keyframes flowDown  { to { stroke-dashoffset: -40; } }
+
+  .fl-right { stroke-dasharray:8 6; animation: flowRight 1.2s linear infinite; }
+  .fl-left  { stroke-dasharray:8 6; animation: flowLeft  1.2s linear infinite; }
+  .fl-down  { stroke-dasharray:6 5; animation: flowDown  1s   linear infinite; }
+
+  /* ── Pulse on Mythos centre node ── */
+  @keyframes mythosPulse {
+    0%,100% { opacity:.18; r:28; }
+    50%      { opacity:.38; r:44; }
+  }
+  .pulse-ring { animation: mythosPulse 2s ease-in-out infinite; }
+
+  /* ── Stat slide-up ── */
+  @keyframes slideUp {
+    from { opacity:0; transform:translateY(10px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+  .su { opacity:0; animation: slideUp .5s ease forwards; }
+  .su1{animation-delay:1.0s} .su2{animation-delay:1.25s}
+
+  /* ── Card pop ── */
+  @keyframes cardPop {
+    from { opacity:0; transform:scale(.88) translateY(10px); }
+    to   { opacity:1; transform:scale(1)   translateY(0); }
+  }
+  .cp { opacity:0; animation: cardPop .4s cubic-bezier(.34,1.56,.64,1) forwards; }
+  .cp1{animation-delay:1.8s} .cp2{animation-delay:2.0s} .cp3{animation-delay:2.2s}
+
+  /* ── Warning pulse on bottom bar ── */
+  @keyframes warnPulse {
+    0%,100%{ fill:#FFF8F8; }
+    50%    { fill:#FCE8E6; }
+  }
+  .warn-bar { animation: warnPulse 3s ease-in-out infinite 2.5s; }
+
+  /* ── Blink cursor ── */
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .cursor { animation: blink 1s step-end infinite; }
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg"
+     font-family="system-ui,-apple-system,sans-serif" text-rendering="optimizeLegibility">
+
+  <defs>
+    <!-- ── Arrow markers (Google colors) ── -->
+    <marker id="mGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#34A853" stroke-width="1.8"/>
+    </marker>
+    <marker id="mRed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#EA4335" stroke-width="1.8"/>
+    </marker>
+    <marker id="mBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#4285F4" stroke-width="1.8"/>
+    </marker>
+    <marker id="mYellow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M1 1L9 5L1 9" fill="none" stroke="#FBBC05" stroke-width="1.8"/>
+    </marker>
+
+    <!-- ── Dot pattern ── -->
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="12" r=".75" fill="#E2E8F0"/>
+    </pattern>
+
+    <!-- ── Drop shadow for cards ── -->
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#00000018"/>
+    </filter>
+  </defs>
+
+  <!-- ══ WHITE BACKGROUND ══ -->
+  <rect width="1200" height="680" fill="#FFFFFF"/>
+  <rect width="1200" height="680" fill="url(#dots)"/>
+
+  <!-- Google 4-color top bar -->
+  <rect x="0"   y="0" width="300" height="5" fill="#4285F4"/>
+  <rect x="300" y="0" width="300" height="5" fill="#EA4335"/>
+  <rect x="600" y="0" width="300" height="5" fill="#FBBC05"/>
+  <rect x="900" y="0" width="300" height="5" fill="#34A853"/>
+  <!-- Bottom bar -->
+  <rect x="0" y="675" width="1200" height="5" fill="#EA4335"/>
+
+  <!-- ══════════════════════════════════
+       HEADER
+  ══════════════════════════════════ -->
+  <g class="fi d1">
+    <text x="60" y="40" font-size="11.5" font-weight="600" fill="#6B7280" letter-spacing="2">ANTHROPIC MYTHOS · DUAL-USE AI · FINANCIAL SYSTEM RISK · ENTERPRISE GOVERNANCE</text>
+    <text x="60" y="83"  font-size="43" font-weight="900" fill="#202124">The Same AI That Protects Your Bank</text>
+    <text x="60" y="120" font-size="43" font-weight="900" fill="#EA4335">Can Break It.</text>
+    <!-- blinking cursor -->
+    <rect class="cursor" x="570" y="96" width="4" height="28" fill="#EA4335" rx="1"/>
+    <text x="60" y="148" font-size="17" fill="#5F6368">The dual-use problem nobody is solving · Treasury Secretary Bessent · Fox News · May 2026</text>
+    <line x1="60" y1="163" x2="1140" y2="163" stroke="#DADCE0" stroke-width="1.2"/>
+  </g>
+
+  <!-- ══════════════════════════════════
+       LEFT PANEL — Dual-use diagram
+       Panel: x=55, y=178, w=500, h=382
+  ══════════════════════════════════ -->
+  <g class="fi d2">
+    <rect x="55" y="178" width="500" height="382" rx="10" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1" filter="url(#cardShadow)"/>
+    <!-- Blue top accent -->
+    <rect x="55" y="178" width="500" height="4" rx="2" fill="#4285F4"/>
+    <text x="305" y="203" font-size="11.5" font-weight="700" fill="#4285F4" text-anchor="middle" letter-spacing="1">THE DUAL-USE PROBLEM · SAME CAPABILITY · TWO OUTCOMES</text>
+    <line x1="68" y1="211" x2="542" y2="211" stroke="#DADCE0" stroke-width=".8"/>
+  </g>
+
+  <!-- ── MYTHOS centre node ── -->
+  <g class="fi d3">
+    <!-- Pulse rings behind node -->
+    <circle class="pulse-ring" cx="303" cy="295" r="28" fill="#4285F4"/>
+    <!-- Node box -->
+    <rect x="228" y="263" width="150" height="66" rx="10" fill="#E8F0FE" stroke="#4285F4" stroke-width="2" filter="url(#cardShadow)"/>
+    <rect x="228" y="263" width="150" height="5" rx="3" fill="#4285F4"/>
+    <text x="303" y="286" font-size="13" font-weight="800" fill="#4285F4" text-anchor="middle">MYTHOS</text>
+    <text x="303" y="302" font-size="10.5" fill="#3C4043" text-anchor="middle">AI vulnerability discovery</text>
+    <text x="303" y="316" font-size="10.5" fill="#3C4043" text-anchor="middle">at machine speed</text>
+  </g>
+
+  <!-- ── DEFENDER box ── -->
+  <g class="fi d3">
+    <rect x="68" y="263" width="148" height="66" rx="8" fill="#E6F4EA" stroke="#34A853" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="68" y="263" width="148" height="5" rx="3" fill="#34A853"/>
+    <text x="142" y="286" font-size="12" font-weight="700" fill="#34A853" text-anchor="middle">DEFENDER</text>
+    <text x="142" y="302" font-size="10.5" fill="#3C4043" text-anchor="middle">Finds vulnerabilities</text>
+    <text x="142" y="316" font-size="10.5" fill="#3C4043" text-anchor="middle">before attacker does</text>
+  </g>
+
+  <!-- ── ATTACKER box ── -->
+  <g class="fi d3">
+    <rect x="444" y="263" width="148" height="66" rx="8" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="444" y="263" width="148" height="5" rx="3" fill="#EA4335"/>
+    <text x="518" y="286" font-size="12" font-weight="700" fill="#EA4335" text-anchor="middle">ATTACKER</text>
+    <text x="518" y="302" font-size="10.5" fill="#3C4043" text-anchor="middle">Finds same vulns</text>
+    <text x="518" y="316" font-size="10.5" fill="#3C4043" text-anchor="middle">and exploits them</text>
+  </g>
+
+  <!-- ════════════════════════════════════════
+       FLOWING LINES — Mythos → Defender (green, rightward-to-left)
+       Mythos left edge x=228, Defender right edge x=216
+  ════════════════════════════════════════ -->
+  <g class="fi d4">
+    <!-- ghost track -->
+    <line x1="227" y1="296" x2="218" y2="296" stroke="#34A853" stroke-width="1" opacity=".15"/>
+    <!-- animated flow -->
+    <line x1="227" y1="296" x2="218" y2="296"
+          stroke="#34A853" stroke-width="1.8" opacity=".9"
+          class="fl-left" marker-end="url(#mGreen)"/>
+  </g>
+
+  <!-- FLOWING LINES — Mythos → Attacker (red, leftward-to-right) -->
+  <g class="fi d4">
+    <line x1="379" y1="296" x2="442" y2="296" stroke="#EA4335" stroke-width="1" opacity=".15"/>
+    <line x1="379" y1="296" x2="442" y2="296"
+          stroke="#EA4335" stroke-width="1.8" opacity=".9"
+          class="fl-right" marker-end="url(#mRed)"/>
+  </g>
+
+  <!-- ── Outcome boxes ── -->
+  <g class="fi d5">
+    <!-- Defender outcome -->
+    <rect x="68"  y="352" width="148" height="50" rx="6" fill="#E6F4EA" stroke="#34A853" stroke-width="1"/>
+    <text x="142" y="373" font-size="11.5" font-weight="600" fill="#34A853" text-anchor="middle">System hardened</text>
+    <text x="142" y="390" font-size="10.5" fill="#3C4043"   text-anchor="middle">Vulnerability patched</text>
+
+    <!-- Centre outcome -->
+    <rect x="228" y="352" width="150" height="50" rx="6" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1"/>
+    <text x="303" y="370" font-size="10.5" font-weight="600" fill="#92400E" text-anchor="middle">Model does not</text>
+    <text x="303" y="388" font-size="10.5" fill="#3C4043"    text-anchor="middle">distinguish intent</text>
+
+    <!-- Attacker outcome -->
+    <rect x="444" y="352" width="148" height="50" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1"/>
+    <text x="518" y="373" font-size="11.5" font-weight="600" fill="#EA4335" text-anchor="middle">System breached</text>
+    <text x="518" y="390" font-size="10.5" fill="#3C4043"   text-anchor="middle">At machine speed</text>
+  </g>
+
+  <!-- FLOWING LINES — Defender box → Defender outcome (green, downward) -->
+  <g class="fi d5">
+    <line x1="142" y1="330" x2="142" y2="350" stroke="#34A853" stroke-width="1" opacity=".15"/>
+    <line x1="142" y1="330" x2="142" y2="350"
+          stroke="#34A853" stroke-width="1.6" opacity=".9"
+          class="fl-down" marker-end="url(#mGreen)"/>
+  </g>
+
+  <!-- FLOWING LINES — Mythos → centre outcome (yellow, downward) -->
+  <g class="fi d5">
+    <line x1="303" y1="330" x2="303" y2="350" stroke="#FBBC05" stroke-width="1" opacity=".2"/>
+    <line x1="303" y1="330" x2="303" y2="350"
+          stroke="#FBBC05" stroke-width="1.6" opacity=".9"
+          class="fl-down" marker-end="url(#mYellow)"/>
+  </g>
+
+  <!-- FLOWING LINES — Attacker box → Attacker outcome (red, downward) -->
+  <g class="fi d5">
+    <line x1="518" y1="330" x2="518" y2="350" stroke="#EA4335" stroke-width="1" opacity=".15"/>
+    <line x1="518" y1="330" x2="518" y2="350"
+          stroke="#EA4335" stroke-width="1.6" opacity=".9"
+          class="fl-down" marker-end="url(#mRed)"/>
+  </g>
+
+  <!-- Treasury quote box -->
+  <g class="fi d6">
+    <rect x="68" y="420" width="462" height="92" rx="8" fill="#FCE8E6" stroke="#EA4335" stroke-width="1" filter="url(#cardShadow)"/>
+    <rect x="68" y="420" width="5"   height="92" rx="2" fill="#EA4335"/>
+    <text x="86" y="440" font-size="10.5" font-weight="700" fill="#EA4335" letter-spacing=".8">TREASURY SECRETARY BESSENT · FOX NEWS · MAY 2026</text>
+    <text x="86" y="459" font-size="13"   fill="#202124" font-style="italic">"You should [be worried about AI hacking bank accounts]."</text>
+    <text x="86" y="477" font-size="10.5" fill="#6B7280">After private meeting with JPMorgan Chase</text>
+    <text x="86" y="493" font-size="10.5" fill="#6B7280">and Bank of America regarding Anthropic Mythos</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       RIGHT TOP — Financial Risk Metrics
+       Panel: x=575, y=178, w=575, h=192
+  ══════════════════════════════════ -->
+  <g class="fi d2">
+    <rect x="575" y="178" width="575" height="192" rx="10" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.5" filter="url(#cardShadow)"/>
+    <rect x="575" y="178" width="575" height="5" rx="2" fill="#EA4335"/>
+    <rect x="575" y="178" width="5"   height="192" rx="2" fill="#EA4335"/>
+    <text x="593" y="202" font-size="12" font-weight="700" fill="#EA4335" letter-spacing=".8">FINANCIAL SECTOR RISK METRICS</text>
+    <line x1="593" y1="210" x2="1138" y2="210" stroke="#EA4335" stroke-width=".6" opacity=".35"/>
+  </g>
+
+  <!-- 71% stat -->
+  <g class="su su1">
+    <text x="593" y="248" font-size="38" font-weight="900" fill="#EA4335">71%</text>
+    <text x="593" y="264" font-size="11.5" fill="#202124">of major banks reported</text>
+    <text x="593" y="279" font-size="11.5" fill="#202124">increased AI-assisted cyber</text>
+    <text x="593" y="294" font-size="11.5" fill="#202124">attack sophistication in 2024</text>
+    <text x="593" y="311" font-size="10.5" fill="#6B7280">McKinsey Global Banking Review · 2024</text>
+  </g>
+
+  <!-- Divider -->
+  <g class="fi d3">
+    <line x1="800" y1="222" x2="800" y2="360" stroke="#EA4335" stroke-width=".6" opacity=".3"/>
+  </g>
+
+  <!-- $5.9M stat -->
+  <g class="su su2">
+    <text x="816" y="248" font-size="38" font-weight="900" fill="#EA4335">$5.9M</text>
+    <text x="816" y="264" font-size="11.5" fill="#202124">average cost of a financial sector</text>
+    <text x="816" y="279" font-size="11.5" fill="#202124">data breach · highest of any industry</text>
+    <text x="816" y="311" font-size="10.5" fill="#6B7280">IBM Cost of a Data Breach · 2024</text>
+  </g>
+
+  <!-- Footnote inside metrics box -->
+  <g class="fi d4">
+    <text x="593" y="354" font-size="10.5" font-weight="600" fill="#EA4335">Both figures compiled before Mythos-class capabilities entered the threat landscape.</text>
+  </g>
+
+  <!-- ══════════════════════════════════
+       RIGHT BOTTOM — Three Governance Cards
+       Panel: x=575, y=384, w=575, h=176
+  ══════════════════════════════════ -->
+  <g class="fi d5">
+    <rect x="575" y="384" width="575" height="176" rx="10" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1" filter="url(#cardShadow)"/>
+    <!-- Google multicolor top accent -->
+    <rect x="575" y="384" width="192" height="4" rx="2" fill="#4285F4"/>
+    <rect x="767" y="384" width="192" height="4" rx="2" fill="#FBBC05"/>
+    <rect x="959" y="384" width="191" height="4" rx="2" fill="#34A853"/>
+    <text x="862" y="407" font-size="12" font-weight="700" fill="#4285F4" text-anchor="middle" letter-spacing="1">THREE GOVERNANCE REQUIREMENTS</text>
+    <line x1="588" y1="415" x2="1138" y2="415" stroke="#DADCE0" stroke-width=".8"/>
+  </g>
+
+  <!-- Card 01 — Blue -->
+  <g class="cp cp1">
+    <rect x="588" y="424" width="172" height="122" rx="8" fill="#E8F0FE" stroke="#4285F4" stroke-width="1" filter="url(#cardShadow)"/>
+    <rect x="588" y="424" width="172" height="4" rx="2" fill="#4285F4"/>
+    <text x="674" y="446" font-size="13" font-weight="800" fill="#4285F4" text-anchor="middle">01</text>
+    <text x="674" y="463" font-size="12"   font-weight="600" fill="#202124" text-anchor="middle">Vendor accountability</text>
+    <text x="674" y="479" font-size="10.5" fill="#5F6368" text-anchor="middle">Define liability before</text>
+    <text x="674" y="494" font-size="10.5" fill="#5F6368" text-anchor="middle">deployment, not after</text>
+    <text x="674" y="509" font-size="10.5" fill="#5F6368" text-anchor="middle">a breach occurs</text>
+  </g>
+
+  <!-- Card 02 — Yellow -->
+  <g class="cp cp2">
+    <rect x="769" y="424" width="172" height="122" rx="8" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1" filter="url(#cardShadow)"/>
+    <rect x="769" y="424" width="172" height="4" rx="2" fill="#FBBC05"/>
+    <text x="855" y="446" font-size="13" font-weight="800" fill="#92400E" text-anchor="middle">02</text>
+    <text x="855" y="463" font-size="12"   font-weight="600" fill="#202124" text-anchor="middle">Systemic disclosure</text>
+    <text x="855" y="479" font-size="10.5" fill="#5F6368" text-anchor="middle">Cross-institution view</text>
+    <text x="855" y="494" font-size="10.5" fill="#5F6368" text-anchor="middle">of shared attack</text>
+    <text x="855" y="509" font-size="10.5" fill="#5F6368" text-anchor="middle">surface</text>
+  </g>
+
+  <!-- Card 03 — Green -->
+  <g class="cp cp3">
+    <rect x="950" y="424" width="172" height="122" rx="8" fill="#E6F4EA" stroke="#34A853" stroke-width="1" filter="url(#cardShadow)"/>
+    <rect x="950" y="424" width="172" height="4" rx="2" fill="#34A853"/>
+    <text x="1036" y="446" font-size="13" font-weight="800" fill="#34A853" text-anchor="middle">03</text>
+    <text x="1036" y="463" font-size="12"   font-weight="600" fill="#202124" text-anchor="middle">Dual-use access policy</text>
+    <text x="1036" y="479" font-size="10.5" fill="#5F6368" text-anchor="middle">Who has access to</text>
+    <text x="1036" y="494" font-size="10.5" fill="#5F6368" text-anchor="middle">offensive capability</text>
+    <text x="1036" y="509" font-size="10.5" fill="#5F6368" text-anchor="middle">and under what rules</text>
+  </g>
+
+  <!-- FLOWING LINE — Metrics box → Governance panel (red, downward) -->
+  <!-- Right panel bottom edge y=370, governance top y=384 -->
+  <g class="fi d6">
+    <line x1="862" y1="371" x2="862" y2="382"
+          stroke="#4285F4" stroke-width="1.6" opacity=".7"
+          class="fl-down" marker-end="url(#mBlue)"/>
+  </g>
+
+  <!-- ══════════════════════════════════
+       BOTTOM SUMMARY BAR
+  ══════════════════════════════════ -->
+  <g class="fi d8">
+    <rect x="55" y="575" width="1090" height="56" rx="8" class="warn-bar" fill="#FFF8F8" stroke="#EA4335" stroke-width=".8" filter="url(#cardShadow)"/>
+    <rect x="55" y="575" width="5"    height="56" rx="2" fill="#4285F4"/>
+    <text x="600" y="597" font-size="15" font-weight="700" fill="#202124" text-anchor="middle">The same AI that protects your bank can break it.</text>
+    <text x="600" y="616" font-size="12"  fill="#5F6368"  text-anchor="middle">The accountability architecture for that reality does not exist anywhere in the world right now. It needs to be built before the first event, not after.</text>
+  </g>
+
+  <!-- Footer -->
+  <g class="fi d9">
+    <text x="600" y="647" font-size="9.5" fill="#9AA0A6" text-anchor="middle">Source: Treasury Bessent Fox News May 2026 · Anthropic Mythos 2026 · McKinsey Global Banking Review 2024 · IBM Cost of Data Breach 2024 · NIST AI RMF 1.0 · EU AI Act 2024</text>
+    <text x="600" y="663" font-size="10.5" fill="#6B7280" text-anchor="middle">Created by Vikas Sharma · DigitalWalk · vikas-sharma-digitalwalk.blogspot.com · linkedin.com/in/sharma1vikas · X: @digitalwalk</text>
+  </g>
+
+</svg>
+</div>
+</body>
+</html>
