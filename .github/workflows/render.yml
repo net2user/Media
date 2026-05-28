@@ -1,3 +1,4 @@
+# workflow trigger now
 name: Render HTML to GIF and MP4
 
 on:
