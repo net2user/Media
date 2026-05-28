@@ -1,4 +1,4 @@
-# activate workflow
+# activate workflow make it run now
 name: Render GIF and MP4
 on:
   push:
