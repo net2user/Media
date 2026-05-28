@@ -1,6 +1,6 @@
-# workflow trigger
 name: Render HTML to GIF and MP4
-on:
+
+"on":
   push:
     paths:
       - 'ai-governance/default-opt-in-ai-governance/index.html'
@@ -23,7 +23,6 @@ jobs:
           sudo apt-get install -y --no-install-recommends \
             ffmpeg \
             gifsicle \
-            xvfb \
             fonts-liberation \
             libatk-bridge2.0-0 \
             libatk1.0-0 \
@@ -52,7 +51,6 @@ jobs:
           node - <<'EOF'
           const puppeteer = require('puppeteer');
           const path = require('path');
-          const fs = require('fs');
 
           (async () => {
             const browser = await puppeteer.launch({
@@ -75,7 +73,7 @@ jobs:
             // Let CSS animations initialise
             await new Promise(r => setTimeout(r, 500));
 
-            const totalFrames = 120;   // 4 seconds at 30 fps
+            const totalFrames = 120; // 4 seconds at 30 fps
             const frameInterval = 1000 / 30;
 
             for (let i = 0; i < totalFrames; i++) {
@@ -118,14 +116,12 @@ jobs:
 
       - name: Build GIF (palette-optimised)
         run: |
-          # Generate an optimal palette from the frames for colour-accurate GIF
           ffmpeg -y \
             -framerate 30 \
             -i frames/frame_%04d.png \
             -vf "fps=15,scale=1160:652:flags=lanczos,palettegen=max_colors=256:stats_mode=diff" \
             /tmp/palette.png
 
-          # Apply palette to produce GIF
           ffmpeg -y \
             -framerate 30 \
             -i frames/frame_%04d.png \
@@ -133,7 +129,6 @@ jobs:
             -filter_complex "fps=15,scale=1160:652:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" \
             output/default-opt-in-ai-governance.gif
 
-          # Optimise with gifsicle
           gifsicle -O3 --lossy=30 \
             output/default-opt-in-ai-governance.gif \
             -o output/default-opt-in-ai-governance.gif
@@ -153,7 +148,6 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          mkdir -p ai-governance/default-opt-in-ai-governance
           cp output/default-opt-in-ai-governance.mp4 \
              ai-governance/default-opt-in-ai-governance/
           cp output/default-opt-in-ai-governance.gif \
