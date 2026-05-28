@@ -1,1 +1,48 @@
 
+# activate workflow make it run now
+name: Render GIF and MP4
+on:
+  push:
+    paths:
+      - "ai-governance/default-opt-in-ai-governance/index.html"
+      - "ai-governance/default-opt-in-ai-governance/render.js"
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          npm install puppeteer
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+
+      - name: Create frames directory
+        run: mkdir -p ai-governance/default-opt-in-ai-governance/frames
+
+      - name: Run renderer
+        run: |
+          node ai-governance/default-opt-in-ai-governance/render.js
+
+      - name: Upload artifacts (MP4 + GIF)
+        uses: actions/upload-artifact@v4
+        with:
+          name: rendered-media
+          path: |
+            ai-governance/default-opt-in-ai-governance/output.mp4
+            ai-governance/default-opt-in-ai-governance/output.gif
+
+      - name: Commit generated files back to repo
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions"
