@@ -32,17 +32,17 @@
   }
 
   .page {
-    width: min(100%, 820px);
+    width: min(100%, 720px);
     margin: 0 auto;
-    padding: 26px 28px 22px;
+    padding: 10px 18px 12px;
   }
 
   .header {
     display: grid;
-    grid-template-columns: 1fr 224px;
-    gap: 22px;
+    grid-template-columns: 1fr 252px;
+    gap: 12px;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 8px;
   }
 
   .eyebrow {
@@ -50,27 +50,27 @@
     font: 500 9px "Google Sans", Arial, sans-serif;
     letter-spacing: 1.25px;
     text-transform: uppercase;
-    margin-bottom: 7px;
+    margin-bottom: 5px;
   }
 
   h1 {
-    font: 700 24px/1.17 "Google Sans Display", "Google Sans", Arial, sans-serif;
-    margin: 0 0 7px;
+    font: 700 18.5px/1.12 "Google Sans Display", "Google Sans", Arial, sans-serif;
+    margin: 0 0 6px;
     letter-spacing: 0;
   }
 
   .subtitle {
     max-width: 520px;
     color: var(--gray);
-    font-size: 11.5px;
-    line-height: 1.55;
+    font-size: 9.4px;
+    line-height: 1.38;
   }
 
   .g-bar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 5px;
-    margin-top: 11px;
+    margin-top: 9px;
     max-width: 420px;
   }
 
@@ -79,32 +79,40 @@
     border-radius: 2px;
   }
 
+  .orbit-wrap {
+    position: relative;
+    width: 252px;
+    height: 166px;
+  }
+
   .governance-orbit {
-    width: 224px;
-    height: 180px;
+    position: absolute;
+    inset: 5px 31px 9px;
+    width: 190px;
+    height: 152px;
   }
 
   .orbit-ring {
     fill: none;
     stroke: var(--gray-mid);
-    stroke-width: 1;
-    stroke-dasharray: 4 5;
+    stroke-width: .55;
+    stroke-dasharray: 3 6;
     transform-origin: 112px 90px;
-    animation: spin 18s linear infinite;
+    animation: spin 24s linear infinite;
   }
 
   .orbit-path {
     fill: none;
-    stroke-width: 2.2;
+    stroke-width: 1.05;
     stroke-linecap: round;
-    stroke-dasharray: 18 12;
+    stroke-dasharray: 12 14;
     transform-origin: 112px 90px;
-    animation: spin 10s linear infinite;
+    animation: spin 16s linear infinite;
   }
 
   .satellite {
     transform-origin: 112px 90px;
-    animation: spin 10s linear infinite;
+    animation: spin 16s linear infinite;
   }
 
   .core-pulse {
@@ -112,13 +120,44 @@
     transform-origin: 112px 90px;
   }
 
+  .orbit-chip {
+    position: absolute;
+    width: 80px;
+    min-height: 37px;
+    padding: 5px 6px 5px 8px;
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--blue);
+    border-radius: 8px;
+    background: rgba(255,255,255,.95);
+    box-shadow: 0 4px 12px rgba(60,64,67,.08);
+  }
+
+  .orbit-chip.red { border-left-color: var(--red); }
+  .orbit-chip.yellow { border-left-color: var(--yellow); }
+
+  .orbit-chip:nth-of-type(1) { left: 0; top: 2px; }
+  .orbit-chip:nth-of-type(2) { right: 0; top: 61px; }
+  .orbit-chip:nth-of-type(3) { left: 7px; bottom: 0; }
+
+  .chip-title {
+    color: var(--dark);
+    font: 700 7.8px/1.12 "Google Sans", Arial, sans-serif;
+    margin-bottom: 2px;
+  }
+
+  .chip-body {
+    color: var(--gray);
+    font-size: 6.9px;
+    line-height: 1.18;
+  }
+
   .section-label {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin: 16px 0 8px;
+    gap: 7px;
+    margin: 7px 0 4px;
     color: var(--gray);
-    font: 500 8.5px "Google Sans", Arial, sans-serif;
+    font: 500 7.8px "Google Sans", Arial, sans-serif;
     letter-spacing: 1.1px;
     text-transform: uppercase;
   }
@@ -133,7 +172,7 @@
   .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 8px;
   }
 
   .grid-2 { grid-template-columns: 1fr 1fr; }
@@ -145,7 +184,7 @@
     background: #fff;
     border: 1px solid var(--line);
     border-radius: 8px;
-    padding: 11px 12px;
+    padding: 6px 8px;
   }
 
   .card::before {
@@ -162,47 +201,31 @@
   .gray::before { background: var(--gray-mid); }
 
   .card-title {
-    font: 700 11px/1.25 "Google Sans", Arial, sans-serif;
-    margin-bottom: 4px;
+    font: 700 9.3px/1.18 "Google Sans", Arial, sans-serif;
+    margin-bottom: 3px;
   }
 
   .card-body {
     color: var(--gray);
-    font-size: 9.6px;
-    line-height: 1.48;
-  }
-
-  .mechanism {
-    text-align: center;
-    padding: 10px 10px 11px;
-  }
-
-  .mechanism .num {
-    width: 24px;
-    height: 24px;
-    display: grid;
-    place-items: center;
-    margin: 0 auto 6px;
-    border-radius: 50%;
-    color: #fff;
-    font: 700 11px "Google Sans", Arial, sans-serif;
+    font-size: 8.1px;
+    line-height: 1.28;
   }
 
   .toggle-demo {
     display: flex;
     align-items: center;
     gap: 9px;
-    min-height: 52px;
-    margin-top: 7px;
-    padding: 9px;
+    min-height: 37px;
+    margin-top: 4px;
+    padding: 6px;
     border: 1px solid var(--line);
     border-radius: 7px;
     background: var(--gray-light);
   }
 
   .toggle-pill {
-    width: 38px;
-    height: 21px;
+    width: 34px;
+    height: 18px;
     border-radius: 12px;
     background: var(--blue);
     flex: 0 0 auto;
@@ -214,10 +237,10 @@
 
   .toggle-knob {
     position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 3px;
-    left: 20px;
+    width: 13px;
+    height: 13px;
+    top: 2.5px;
+    left: 18px;
     border-radius: 50%;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0,0,0,0.25);
@@ -229,33 +252,33 @@
   .toggle-text {
     min-width: 0;
     color: var(--dark);
-    font-size: 9.4px;
-    line-height: 1.35;
+    font-size: 7.9px;
+    line-height: 1.22;
   }
 
   .badge {
     flex: 0 0 auto;
     border-radius: 999px;
-    padding: 2px 7px;
-    font: 500 8px "Google Sans", Arial, sans-serif;
+    padding: 2px 6px;
+    font: 500 7.2px "Google Sans", Arial, sans-serif;
     white-space: nowrap;
   }
 
   .friction-row {
     display: grid;
-    grid-template-columns: 94px 1fr 33px;
+    grid-template-columns: 84px 1fr 30px;
     align-items: center;
     gap: 7px;
-    margin: 7px 0;
+    margin: 4px 0;
   }
 
   .friction-label {
     color: var(--dark);
-    font: 500 9px "Google Sans", Arial, sans-serif;
+    font: 500 7.8px "Google Sans", Arial, sans-serif;
   }
 
   .friction-track {
-    height: 7px;
+    height: 6px;
     overflow: hidden;
     border-radius: 5px;
     background: var(--gray-mid);
@@ -270,7 +293,7 @@
 
   .friction-val {
     color: var(--gray);
-    font-size: 8.5px;
+    font-size: 7.6px;
     text-align: right;
   }
 
@@ -291,7 +314,7 @@
 
   .tl-item {
     position: relative;
-    margin-bottom: 9px;
+    margin-bottom: 4px;
     opacity: 0;
     transform: translateX(-6px);
     animation: reveal 0.55s ease forwards;
@@ -308,14 +331,14 @@
   }
 
   .tl-label {
-    font: 700 9.4px "Google Sans", Arial, sans-serif;
+    font: 700 8px "Google Sans", Arial, sans-serif;
     margin-bottom: 1px;
   }
 
   .tl-body {
     color: var(--gray);
-    font-size: 8.7px;
-    line-height: 1.42;
+    font-size: 7.4px;
+    line-height: 1.24;
   }
 
   .triad {
@@ -328,36 +351,36 @@
   }
 
   .triad-item {
-    padding: 10px 11px;
+    padding: 6px 7px;
     border-right: 1px solid var(--line);
   }
 
   .triad-item:last-child { border-right: 0; }
 
   .triad-icon {
-    width: 21px;
-    height: 21px;
+    width: 18px;
+    height: 18px;
     display: grid;
     place-items: center;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
     border-radius: 50%;
     color: #fff;
-    font: 700 10px "Google Sans", Arial, sans-serif;
+    font: 700 9px "Google Sans", Arial, sans-serif;
   }
 
   .triad-title {
-    font: 700 9.6px "Google Sans", Arial, sans-serif;
+    font: 700 8.8px "Google Sans", Arial, sans-serif;
     margin-bottom: 3px;
   }
 
   .triad-body {
     color: var(--gray);
-    font-size: 8.7px;
-    line-height: 1.44;
+    font-size: 7.4px;
+    line-height: 1.25;
   }
 
   .flow-card {
-    padding: 12px 12px 7px;
+    padding: 7px 8px 4px;
   }
 
   .flow-svg {
@@ -375,79 +398,79 @@
   .evidence {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 7px;
   }
 
   .metric {
     display: grid;
-    grid-template-columns: 45px 1fr;
-    gap: 8px;
+    grid-template-columns: 39px 1fr;
+    gap: 6px;
     align-items: start;
-    padding: 7px 8px;
-    margin-top: 7px;
+    padding: 5px 7px;
+    margin-top: 5px;
     border: 1px solid var(--line);
     border-radius: 7px;
   }
 
   .metric-num {
-    font: 700 20px/1 "Google Sans Display", Arial, sans-serif;
+    font: 700 17px/1 "Google Sans Display", Arial, sans-serif;
     text-align: center;
   }
 
   .metric-label {
-    font: 700 9px "Google Sans", Arial, sans-serif;
+    font: 700 8px "Google Sans", Arial, sans-serif;
     margin-bottom: 1px;
   }
 
   .metric-sub {
     color: var(--gray);
-    font-size: 8.4px;
-    line-height: 1.35;
+    font-size: 7.2px;
+    line-height: 1.2;
   }
 
   .lever-row {
     display: grid;
-    grid-template-columns: 8px 118px 1fr 82px;
-    gap: 9px;
+    grid-template-columns: 7px 106px 1fr 72px;
+    gap: 7px;
     align-items: center;
-    padding: 7px 0;
+    padding: 4px 0;
     border-bottom: 1px solid var(--line);
   }
 
   .lever-row:last-child { border-bottom: 0; }
 
   .lever-dot {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
   }
 
   .lever-name {
     color: var(--dark);
-    font: 700 9.4px "Google Sans", Arial, sans-serif;
+    font: 700 8.4px "Google Sans", Arial, sans-serif;
   }
 
   .lever-desc {
     color: var(--gray);
-    font-size: 8.8px;
-    line-height: 1.35;
+    font-size: 7.4px;
+    line-height: 1.2;
   }
 
   .lever-tag {
     justify-self: end;
     border-radius: 999px;
-    padding: 2px 7px;
-    font: 500 8px "Google Sans", Arial, sans-serif;
+    padding: 2px 6px;
+    font: 500 7.2px "Google Sans", Arial, sans-serif;
     white-space: nowrap;
   }
 
   .footer {
-    margin-top: 17px;
-    padding-top: 8px;
+    margin-top: 7px;
+    padding-top: 5px;
     border-top: 1px solid var(--line);
     color: #000;
     font-size: 9px;
-    line-height: 1.35;
+    line-height: 1.2;
   }
 
   .source-line { margin-top: 3px; }
@@ -485,7 +508,7 @@
   }
 
   @keyframes knobOnOff {
-    0%, 48%, 100% { left: 20px; }
+    0%, 48%, 100% { left: 18px; }
     58%, 78% { left: 3px; }
   }
 
@@ -499,9 +522,14 @@
       grid-template-columns: 1fr;
     }
 
+    .orbit-wrap {
+      width: 252px;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
     .governance-orbit {
-      width: 100%;
-      max-width: 260px;
+      max-width: 190px;
       margin: 0 auto;
     }
 
@@ -524,7 +552,7 @@
 <main class="page">
   <header class="header fade">
     <div>
-      <div class="eyebrow">AI Governance · Platform Defaults · Interface Architecture</div>
+      <div class="eyebrow">AI Governance &middot; Platform Defaults &middot; Interface Architecture</div>
       <h1>Default-On AI Is Becoming a Governance Decision</h1>
       <p class="subtitle">Interface choices now decide participation, consent, derivative use, and enterprise exposure. In practice, the toggle is becoming infrastructure.</p>
       <div class="g-bar" aria-hidden="true">
@@ -535,44 +563,37 @@
       </div>
     </div>
 
-    <svg class="governance-orbit" viewBox="0 0 224 180" role="img" aria-label="AI governance orbit icon">
-      <circle class="orbit-ring" cx="112" cy="90" r="70"></circle>
-      <ellipse class="orbit-ring" cx="112" cy="90" rx="84" ry="38" style="animation-direction:reverse"></ellipse>
-      <path class="orbit-path" d="M44 90a68 68 0 1 0 136 0a68 68 0 1 0 -136 0" stroke="#4285F4"></path>
-      <path class="orbit-path" d="M28 90c34 -38 134 -38 168 0c-34 38 -134 38 -168 0Z" stroke="#34A853" style="animation-direction:reverse"></path>
-      <g class="satellite">
-        <circle cx="180" cy="90" r="6" fill="#FBBC05"></circle>
-        <circle cx="180" cy="90" r="2.5" fill="#202124"></circle>
-      </g>
-      <circle class="core-pulse" cx="112" cy="90" r="43" fill="#fff" stroke="#DADCE0"></circle>
-      <circle cx="112" cy="90" r="31" fill="#E8F0FE" stroke="#4285F4"></circle>
-      <path d="M94 89c0-10 8-18 18-18s18 8 18 18c0 7-4 13-10 16v8H104v-8c-6-3-10-9-10-16Z" fill="#4285F4"></path>
-      <path d="M101 91h22M105 82h14M105 99h14" stroke="#fff" stroke-width="3" stroke-linecap="round"></path>
-      <text x="112" y="137" text-anchor="middle" font-family="Google Sans, Arial" font-size="9" font-weight="700" fill="#202124">Governance Center</text>
-      <text x="112" y="150" text-anchor="middle" font-family="Roboto, Arial" font-size="8" fill="#5F6368">defaults · consent · recourse</text>
-    </svg>
-  </header>
-
-  <section>
-    <div class="section-label">The governance mechanism</div>
-    <div class="grid">
-      <article class="card mechanism">
-        <div class="num" style="background:var(--blue)">1</div>
-        <div class="card-title">Default activation</div>
-        <div class="card-body">AI features launch switched on, turning participation into the baseline before awareness forms.</div>
-      </article>
-      <article class="card mechanism red">
-        <div class="num" style="background:var(--red)">2</div>
-        <div class="card-title">Consent friction</div>
-        <div class="card-body">Opt-out lives in buried, repeated, per-asset actions. Resistance becomes operational work.</div>
-      </article>
-      <article class="card mechanism yellow">
-        <div class="num" style="background:var(--yellow);color:var(--dark)">3</div>
-        <div class="card-title">Notification lag</div>
-        <div class="card-body">Communication follows deployment. Users often learn after participation is normalized.</div>
-      </article>
+    <div class="orbit-wrap" aria-label="AI governance orbit with mechanism points">
+      <svg class="governance-orbit" viewBox="0 0 224 180" role="img" aria-label="AI governance orbit icon">
+        <circle class="orbit-ring" cx="112" cy="90" r="70"></circle>
+        <ellipse class="orbit-ring" cx="112" cy="90" rx="84" ry="38" style="animation-direction:reverse"></ellipse>
+        <path class="orbit-path" d="M44 90a68 68 0 1 0 136 0a68 68 0 1 0 -136 0" stroke="#4285F4"></path>
+        <path class="orbit-path" d="M28 90c34 -38 134 -38 168 0c-34 38 -134 38 -168 0Z" stroke="#34A853" style="animation-direction:reverse"></path>
+        <g class="satellite">
+          <circle cx="180" cy="90" r="4.2" fill="#FBBC05"></circle>
+          <circle cx="180" cy="90" r="1.7" fill="#202124"></circle>
+        </g>
+        <circle class="core-pulse" cx="112" cy="90" r="41" fill="#fff" stroke="#DADCE0" stroke-width=".8"></circle>
+        <circle cx="112" cy="90" r="30" fill="#E8F0FE" stroke="#4285F4" stroke-width=".9"></circle>
+        <path d="M94 89c0-10 8-18 18-18s18 8 18 18c0 7-4 13-10 16v8H104v-8c-6-3-10-9-10-16Z" fill="#4285F4"></path>
+        <path d="M101 91h22M105 82h14M105 99h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"></path>
+        <text x="112" y="137" text-anchor="middle" font-family="Google Sans, Arial" font-size="8.4" font-weight="700" fill="#202124">Governance Center</text>
+        <text x="112" y="149" text-anchor="middle" font-family="Roboto, Arial" font-size="7.4" fill="#5F6368">defaults &middot; consent &middot; recourse</text>
+      </svg>
+      <div class="orbit-chip">
+        <div class="chip-title">Default activation</div>
+        <div class="chip-body">Participation starts before awareness.</div>
+      </div>
+      <div class="orbit-chip red">
+        <div class="chip-title">Consent friction</div>
+        <div class="chip-body">Opt-out becomes repeated work.</div>
+      </div>
+      <div class="orbit-chip yellow">
+        <div class="chip-title">Notification lag</div>
+        <div class="chip-body">Notice arrives after rollout.</div>
+      </div>
     </div>
-  </section>
+  </header>
 
   <section>
     <div class="section-label">Live illustration</div>
@@ -800,8 +821,8 @@
   </section>
 
   <footer class="footer">
-    <div>Credentials: Vikas · AI Governance · Digital Transformation Advisory · Framework: Default Opt-In AI &amp; Platform Governance · AI_GOV_DEFAULTS_TEMPLATE_V1</div>
-    <div class="source-line">Sources: TikTok Meme Remixer rollout, Apr 2026 · BCG internal GPT experiment, approx. 750 employees · IBM / ServiceNow AI governance reference architectures · EU AI Act disclosure and risk classification framework · Analysis: Vikas</div>
+    <div>Credentials: Vikas &middot; AI Governance &middot; Digital Transformation Advisory &middot; Framework: Default Opt-In AI &amp; Platform Governance &middot; AI_GOV_DEFAULTS_TEMPLATE_V1</div>
+    <div class="source-line">Sources: TikTok Meme Remixer rollout, Apr 2026 &middot; BCG internal GPT experiment, approx. 750 employees &middot; IBM / ServiceNow AI governance reference architectures &middot; EU AI Act disclosure and risk classification framework &middot; Analysis: Vikas</div>
   </footer>
 </main>
 </body>
