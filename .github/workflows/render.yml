@@ -1,6 +1,5 @@
-# workflow trigger now
+# workflow trigger
 name: Render HTML to GIF and MP4
-
 on:
   push:
     paths:
