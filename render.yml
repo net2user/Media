@@ -1,5 +1,5 @@
+# activate workflow
 name: Render GIF and MP4
-
 on:
   push:
     paths:
