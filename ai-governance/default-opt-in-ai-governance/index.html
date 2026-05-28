@@ -512,6 +512,252 @@
     58%, 78% { left: 3px; }
   }
 
+  /* Single-screen quadrant composition */
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .page {
+    width: min(100vw, 1160px);
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    gap: 8px;
+    padding: 12px 18px 10px;
+  }
+
+  .header {
+    display: block;
+    margin: 0;
+  }
+
+  .header > .orbit-wrap,
+  .page > section {
+    display: none;
+  }
+
+  .title-row {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 16px;
+    align-items: end;
+  }
+
+  .title-row h1 {
+    font-size: 20px;
+    max-width: 720px;
+  }
+
+  .title-row .subtitle {
+    max-width: 760px;
+  }
+
+  .g-bar {
+    max-width: none;
+    margin-top: 0;
+  }
+
+  .quadrants {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 9px;
+    min-height: 0;
+  }
+
+  .quadrant {
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    padding: 9px 10px;
+    position: relative;
+  }
+
+  .quadrant::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 3px;
+    background: var(--blue);
+  }
+
+  .quadrant.red::before { background: var(--red); }
+  .quadrant.yellow::before { background: var(--yellow); }
+  .quadrant.green::before { background: var(--green); }
+
+  .quad-heading {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 3px 0 7px;
+    font: 700 10px/1.1 "Google Sans", Arial, sans-serif;
+    color: var(--dark);
+  }
+
+  .quad-kicker {
+    color: var(--gray);
+    font: 500 7.5px "Google Sans", Arial, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .quad-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex: 0 0 auto;
+  }
+
+  .mini-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+  }
+
+  .mini-card {
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 6px 7px;
+    background: var(--gray-light);
+  }
+
+  .mini-title {
+    font: 700 8.5px/1.15 "Google Sans", Arial, sans-serif;
+    margin-bottom: 2px;
+  }
+
+  .mini-body {
+    color: var(--gray);
+    font-size: 7.5px;
+    line-height: 1.25;
+  }
+
+  .center-quadrant {
+    display: grid;
+    grid-template-columns: 238px 1fr;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .center-quadrant .orbit-wrap {
+    transform: scale(.88);
+    transform-origin: center;
+  }
+
+  .center-quadrant .orbit-chip:nth-of-type(1) { left: 2px; top: 4px; }
+  .center-quadrant .orbit-chip:nth-of-type(2) { right: 2px; top: 60px; }
+  .center-quadrant .orbit-chip:nth-of-type(3) { left: 8px; bottom: 4px; }
+
+  .mechanism-stack {
+    display: grid;
+    gap: 6px;
+  }
+
+  .mechanism-pill {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 6px;
+    align-items: start;
+    padding: 6px 7px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: #fff;
+  }
+
+  .pill-num {
+    width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #fff;
+    font: 700 8px "Google Sans", Arial, sans-serif;
+  }
+
+  .compact-flow {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    align-items: stretch;
+    margin: 5px 0 7px;
+  }
+
+  .flow-node {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 6px 5px;
+    text-align: center;
+    position: relative;
+    font-size: 7.2px;
+    line-height: 1.2;
+    color: var(--gray);
+  }
+
+  .flow-node strong {
+    display: block;
+    color: var(--dark);
+    font: 700 8px/1.1 "Google Sans", Arial, sans-serif;
+    margin-bottom: 2px;
+  }
+
+  .flow-node:not(:last-child)::after {
+    content: ">";
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray);
+    font-size: 8px;
+  }
+
+  .evidence-strip {
+    display: grid;
+    grid-template-columns: 84px 1fr 1fr;
+    gap: 7px;
+    align-items: stretch;
+  }
+
+  .metric-tile {
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 6px;
+    text-align: center;
+    background: #fff;
+  }
+
+  .metric-tile .metric-num {
+    font-size: 19px;
+  }
+
+  .lever-compact {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 8px;
+    margin-top: 6px;
+  }
+
+  .lever-compact div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--gray);
+    font-size: 7.4px;
+    line-height: 1.15;
+  }
+
+  .footer {
+    margin: 0;
+    padding-top: 5px;
+    font-size: 9px;
+    line-height: 1.15;
+  }
+
   @media (max-width: 720px) {
     .page { padding: 22px 18px; }
     .header,
@@ -568,7 +814,6 @@
         <circle class="orbit-ring" cx="112" cy="90" r="70"></circle>
         <ellipse class="orbit-ring" cx="112" cy="90" rx="84" ry="38" style="animation-direction:reverse"></ellipse>
         <path class="orbit-path" d="M44 90a68 68 0 1 0 136 0a68 68 0 1 0 -136 0" stroke="#4285F4"></path>
-        <path class="orbit-path" d="M28 90c34 -38 134 -38 168 0c-34 38 -134 38 -168 0Z" stroke="#34A853" style="animation-direction:reverse"></path>
         <g class="satellite">
           <circle cx="180" cy="90" r="4.2" fill="#FBBC05"></circle>
           <circle cx="180" cy="90" r="1.7" fill="#202124"></circle>
@@ -594,6 +839,120 @@
       </div>
     </div>
   </header>
+
+  <div class="quadrants">
+    <section class="quadrant center-quadrant">
+      <div class="orbit-wrap" aria-label="Clean AI governance orbit with mechanism points">
+        <svg class="governance-orbit" viewBox="0 0 224 180" role="img" aria-label="AI governance orbit icon">
+          <circle class="orbit-ring" cx="112" cy="90" r="70"></circle>
+          <ellipse class="orbit-ring" cx="112" cy="90" rx="84" ry="38" style="animation-direction:reverse"></ellipse>
+          <path class="orbit-path" d="M44 90a68 68 0 1 0 136 0a68 68 0 1 0 -136 0" stroke="#4285F4"></path>
+          <g class="satellite">
+            <circle cx="180" cy="90" r="4.2" fill="#FBBC05"></circle>
+            <circle cx="180" cy="90" r="1.7" fill="#202124"></circle>
+          </g>
+          <circle class="core-pulse" cx="112" cy="90" r="41" fill="#fff" stroke="#DADCE0" stroke-width=".8"></circle>
+          <circle cx="112" cy="90" r="30" fill="#E8F0FE" stroke="#4285F4" stroke-width=".9"></circle>
+          <path d="M94 89c0-10 8-18 18-18s18 8 18 18c0 7-4 13-10 16v8H104v-8c-6-3-10-9-10-16Z" fill="#4285F4"></path>
+          <path d="M101 91h22M105 82h14M105 99h14" stroke="#fff" stroke-width="2.4" stroke-linecap="round"></path>
+          <text x="112" y="137" text-anchor="middle" font-family="Google Sans, Arial" font-size="8.4" font-weight="700" fill="#202124">Governance Center</text>
+          <text x="112" y="149" text-anchor="middle" font-family="Roboto, Arial" font-size="7.4" fill="#5F6368">defaults &middot; consent &middot; recourse</text>
+        </svg>
+        <div class="orbit-chip">
+          <div class="chip-title">Default activation</div>
+          <div class="chip-body">Participation starts before awareness.</div>
+        </div>
+        <div class="orbit-chip red">
+          <div class="chip-title">Consent friction</div>
+          <div class="chip-body">Opt-out becomes repeated work.</div>
+        </div>
+        <div class="orbit-chip yellow">
+          <div class="chip-title">Notification lag</div>
+          <div class="chip-body">Notice arrives after rollout.</div>
+        </div>
+      </div>
+      <div class="mechanism-stack">
+        <div class="quad-kicker">Quadrant 1</div>
+        <div class="quad-heading"><span class="quad-dot" style="background:var(--blue)"></span>Governance Mechanism</div>
+        <div class="mechanism-pill">
+          <div class="pill-num" style="background:var(--blue)">1</div>
+          <div><div class="mini-title">Default-on baseline</div><div class="mini-body">AI launches as the starting state, not a user choice.</div></div>
+        </div>
+        <div class="mechanism-pill">
+          <div class="pill-num" style="background:var(--red)">2</div>
+          <div><div class="mini-title">Friction as policy</div><div class="mini-body">The interface makes resistance slower than participation.</div></div>
+        </div>
+        <div class="mechanism-pill">
+          <div class="pill-num" style="background:var(--yellow);color:var(--dark)">3</div>
+          <div><div class="mini-title">Late awareness</div><div class="mini-body">Users discover the feature after adoption momentum begins.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quadrant red">
+      <div class="quad-kicker">Quadrant 2</div>
+      <div class="quad-heading"><span class="quad-dot" style="background:var(--red)"></span>Consent And Control Experience</div>
+      <div class="mini-grid">
+        <div class="mini-card">
+          <div class="mini-title" style="color:var(--blue)">Platform default</div>
+          <div class="toggle-demo">
+            <div class="toggle-pill"><div class="toggle-knob"></div></div>
+            <div class="toggle-text">AI Remix enabled<br><span style="color:var(--gray)">Per-post setting</span></div>
+          </div>
+          <div class="mini-body">Participation is easy; opting out scales poorly.</div>
+        </div>
+        <div class="mini-card">
+          <div class="mini-title" style="color:var(--green)">Enterprise standard</div>
+          <div class="toggle-demo">
+            <div class="toggle-pill green-toggle"><div class="toggle-knob"></div></div>
+            <div class="toggle-text">Review &gt; Approve<br><span style="color:var(--gray)">Notify before deploy</span></div>
+          </div>
+          <div class="mini-body">Controls exist before a material AI change goes live.</div>
+        </div>
+      </div>
+      <div style="margin-top:6px">
+        <div class="friction-row"><div class="friction-label">View remix</div><div class="friction-track"><div class="friction-fill" style="--w:8%;background:var(--green)"></div></div><div class="friction-val">1 tap</div></div>
+        <div class="friction-row"><div class="friction-label">Opt out post</div><div class="friction-track"><div class="friction-fill" style="--w:62%;background:var(--yellow)"></div></div><div class="friction-val">4 taps</div></div>
+        <div class="friction-row"><div class="friction-label">Opt out 100</div><div class="friction-track"><div class="friction-fill" style="--w:94%;background:var(--red)"></div></div><div class="friction-val">400+</div></div>
+        <div class="friction-row"><div class="friction-label">Global opt-out</div><div class="friction-track"><div class="friction-fill" style="--w:100%;background:var(--red)"></div></div><div class="friction-val">N/A</div></div>
+      </div>
+    </section>
+
+    <section class="quadrant yellow">
+      <div class="quad-kicker">Quadrant 3</div>
+      <div class="quad-heading"><span class="quad-dot" style="background:var(--yellow)"></span>Enterprise Exposure Path</div>
+      <div class="compact-flow">
+        <div class="flow-node" style="background:var(--blue-light)"><strong>Enterprise</strong>SOPs, whiteboards, brand assets</div>
+        <div class="flow-node" style="background:var(--yellow-light)"><strong>Public post</strong>Social platform content surface</div>
+        <div class="flow-node" style="background:var(--red-light)"><strong>AI remix</strong>Default derivatives and signals</div>
+        <div class="flow-node" style="background:var(--red-light)"><strong>Exposure</strong>IP, brand, operating context</div>
+        <div class="flow-node" style="background:var(--gray-light)"><strong>Miss</strong>Not in the risk register</div>
+      </div>
+      <div class="timeline">
+        <div class="tl-item" style="animation-delay:.05s"><div class="tl-dot" style="background:var(--blue)"></div><div class="tl-label">Feature ships</div><div class="tl-body">Default-on across public content.</div></div>
+        <div class="tl-item" style="animation-delay:.2s"><div class="tl-dot" style="background:var(--yellow)"></div><div class="tl-label">Backlash surfaces</div><div class="tl-body">Creators find buried controls through peers.</div></div>
+        <div class="tl-item" style="animation-delay:.35s"><div class="tl-dot" style="background:var(--red)"></div><div class="tl-label">Pause or clarify</div><div class="tl-body">Policy catches up after behavior has shifted.</div></div>
+      </div>
+    </section>
+
+    <section class="quadrant green">
+      <div class="quad-kicker">Quadrant 4</div>
+      <div class="quad-heading"><span class="quad-dot" style="background:var(--green)"></span>Evidence And Governance Levers</div>
+      <div class="evidence-strip">
+        <div class="metric-tile"><div class="metric-num" style="color:var(--green)">+37%</div><div class="metric-sub">Productivity gain on simple tasks when AI is useful and scoped.</div></div>
+        <div class="metric-tile"><div class="metric-num" style="color:var(--red)">-23%</div><div class="metric-sub">Performance drop on complex tasks from over-trust in default AI.</div></div>
+        <div class="mini-card"><div class="mini-title">Boardroom reframe</div><div class="mini-body">If a platform toggle decides how far assets can be distorted, UX is now governance.</div></div>
+      </div>
+      <div class="lever-compact">
+        <div><span class="lever-dot" style="background:var(--blue)"></span>Default activation sets the baseline.</div>
+        <div><span class="lever-dot" style="background:var(--red)"></span>Consent friction taxes resistance.</div>
+        <div><span class="lever-dot" style="background:var(--yellow)"></span>Notification timing creates lag.</div>
+        <div><span class="lever-dot" style="background:var(--green)"></span>Control location shapes compliance.</div>
+        <div><span class="lever-dot" style="background:var(--gray)"></span>Participation asymmetry reveals power.</div>
+        <div><span class="lever-dot" style="background:var(--blue)"></span>Recourse architecture closes the loop.</div>
+      </div>
+    </section>
+  </div>
 
   <section>
     <div class="section-label">Live illustration</div>
