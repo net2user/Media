@@ -1,6 +1,6 @@
-
 # activate workflow make it run now
 name: Render GIF and MP4
+
 on:
   push:
     paths:
@@ -45,4 +45,7 @@ jobs:
       - name: Commit generated files back to repo
         run: |
           git config --global user.name "github-actions"
-          git config --global user.email "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "Add rendered media"
+          git push
