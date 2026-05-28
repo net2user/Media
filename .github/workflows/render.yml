@@ -1,12 +1,13 @@
-# activate workflow make it run now
-name: Render GIF and MP4
+name: Render HTML to GIF and MP4
 
 on:
   push:
     paths:
-      - "ai-governance/default-opt-in-ai-governance/index.html"
-      - "ai-governance/default-opt-in-ai-governance/render.js"
+      - 'ai-governance/default-opt-in-ai-governance/index.html'
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   render:
@@ -16,36 +17,150 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            ffmpeg \
+            gifsicle \
+            xvfb \
+            fonts-liberation \
+            libatk-bridge2.0-0 \
+            libatk1.0-0 \
+            libcups2 \
+            libdrm2 \
+            libgbm1 \
+            libgtk-3-0 \
+            libnss3 \
+            libxcomposite1 \
+            libxdamage1 \
+            libxfixes3 \
+            libxrandr2 \
+            libxss1
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
-      - name: Install dependencies
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
+      - name: Capture animation frames
         run: |
-          npm install puppeteer
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          mkdir -p frames
+          node - <<'EOF'
+          const puppeteer = require('puppeteer');
+          const path = require('path');
+          const fs = require('fs');
 
-      - name: Create frames directory
-        run: mkdir -p ai-governance/default-opt-in-ai-governance/frames
+          (async () => {
+            const browser = await puppeteer.launch({
+              headless: 'new',
+              args: [
+                '--no-sandbox',
+                '--disable-setuid-sandbox',
+                '--disable-dev-shm-usage',
+                '--disable-gpu',
+                '--window-size=1160,652'
+              ]
+            });
 
-      - name: Run renderer
+            const page = await browser.newPage();
+            await page.setViewport({ width: 1160, height: 652, deviceScaleFactor: 2 });
+
+            const filePath = path.resolve('ai-governance/default-opt-in-ai-governance/index.html');
+            await page.goto('file://' + filePath, { waitUntil: 'networkidle0' });
+
+            // Let CSS animations initialise
+            await new Promise(r => setTimeout(r, 500));
+
+            const totalFrames = 120;   // 4 seconds at 30 fps
+            const frameInterval = 1000 / 30;
+
+            for (let i = 0; i < totalFrames; i++) {
+              await page.screenshot({
+                path: `frames/frame_${String(i).padStart(4, '0')}.png`,
+                type: 'png',
+                clip: { x: 0, y: 0, width: 1160, height: 652 }
+              });
+              await new Promise(r => setTimeout(r, frameInterval));
+            }
+
+            await browser.close();
+            console.log(`Captured ${totalFrames} frames.`);
+          })();
+          EOF
+
+      - name: Verify frames were captured
         run: |
-          node ai-governance/default-opt-in-ai-governance/render.js
+          COUNT=$(ls frames/frame_*.png 2>/dev/null | wc -l)
+          echo "Frame count: $COUNT"
+          if [ "$COUNT" -lt 10 ]; then
+            echo "ERROR: Too few frames captured ($COUNT). Aborting."
+            exit 1
+          fi
 
-      - name: Upload artifacts (MP4 + GIF)
+      - name: Build MP4
+        run: |
+          mkdir -p output
+          ffmpeg -y \
+            -framerate 30 \
+            -i frames/frame_%04d.png \
+            -vf "scale=1160:652:flags=lanczos" \
+            -c:v libx264 \
+            -preset slow \
+            -crf 18 \
+            -pix_fmt yuv420p \
+            -movflags +faststart \
+            output/default-opt-in-ai-governance.mp4
+          echo "MP4 size: $(du -sh output/default-opt-in-ai-governance.mp4 | cut -f1)"
+
+      - name: Build GIF (palette-optimised)
+        run: |
+          # Generate an optimal palette from the frames for colour-accurate GIF
+          ffmpeg -y \
+            -framerate 30 \
+            -i frames/frame_%04d.png \
+            -vf "fps=15,scale=1160:652:flags=lanczos,palettegen=max_colors=256:stats_mode=diff" \
+            /tmp/palette.png
+
+          # Apply palette to produce GIF
+          ffmpeg -y \
+            -framerate 30 \
+            -i frames/frame_%04d.png \
+            -i /tmp/palette.png \
+            -filter_complex "fps=15,scale=1160:652:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle" \
+            output/default-opt-in-ai-governance.gif
+
+          # Optimise with gifsicle
+          gifsicle -O3 --lossy=30 \
+            output/default-opt-in-ai-governance.gif \
+            -o output/default-opt-in-ai-governance.gif
+
+          echo "GIF size: $(du -sh output/default-opt-in-ai-governance.gif | cut -f1)"
+
+      - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: rendered-media
           path: |
-            ai-governance/default-opt-in-ai-governance/output.mp4
-            ai-governance/default-opt-in-ai-governance/output.gif
+            output/default-opt-in-ai-governance.mp4
+            output/default-opt-in-ai-governance.gif
+          retention-days: 30
 
-      - name: Commit generated files back to repo
+      - name: Commit rendered files back to repository
         run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add .
-          git commit -m "Add rendered media"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          mkdir -p ai-governance/default-opt-in-ai-governance
+          cp output/default-opt-in-ai-governance.mp4 \
+             ai-governance/default-opt-in-ai-governance/
+          cp output/default-opt-in-ai-governance.gif \
+             ai-governance/default-opt-in-ai-governance/
+          git add \
+            ai-governance/default-opt-in-ai-governance/default-opt-in-ai-governance.mp4 \
+            ai-governance/default-opt-in-ai-governance/default-opt-in-ai-governance.gif
+          git diff --cached --quiet || \
+            git commit -m "ci: render GIF and MP4 for default-opt-in-ai-governance [skip ci]"
           git push
