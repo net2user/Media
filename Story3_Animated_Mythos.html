@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Story 3 Animated - Dual Use AI Financial</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#F1F5F9; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
+.wrap { width:1200px; max-width:100%; }
+svg { display:block; width:100%; height:auto; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,.10); }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes tL { 0%{transform:translateX(0);opacity:0} 6%{opacity:1} 94%{opacity:1} 100%{transform:translateX(-168px);opacity:0} }
+@keyframes tR { 0%{transform:translateX(0);opacity:0} 6%{opacity:1} 94%{opacity:1} 100%{transform:translateX(168px);opacity:0} }
+@keyframes pulse { 0%,100%{opacity:.7;r:7} 50%{opacity:1;r:11} }
+.h1{animation:fadeIn .6s ease .2s both}
+.h2{animation:fadeIn .6s ease .5s both}
+.p1{animation:slideUp .7s ease .7s both}
+.p2{animation:slideUp .7s ease 1.2s both}
+.p3{animation:slideUp .7s ease 1.7s both}
+.p4{animation:slideUp .7s ease 2.2s both}
+.p5{animation:slideUp .7s ease 2.7s both}
+.bot{animation:fadeIn .6s ease 3.3s both}
+.tdl{animation:tL 2.6s ease-in-out 1.0s infinite}
+.tdr{animation:tR 2.6s ease-in-out 1.6s infinite}
+.pd{animation:pulse 1.8s ease-in-out .8s infinite}
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg"
+     font-family="system-ui,-apple-system,sans-serif" text-rendering="optimizeLegibility">
+
+  <defs>
+    <marker id="mg" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#34A853" stroke-width="1.5"/>
+    </marker>
+    <marker id="mr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#EA4335" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="680" fill="#FFFFFF"/>
+  <pattern id="dp" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r=".8" fill="#E2E8F0"/></pattern>
+  <rect width="1200" height="680" fill="url(#dp)"/>
+  <rect x="0"   y="0" width="300" height="5" fill="#4285F4"/>
+  <rect x="300" y="0" width="300" height="5" fill="#EA4335"/>
+  <rect x="600" y="0" width="300" height="5" fill="#FBBC05"/>
+  <rect x="900" y="0" width="300" height="5" fill="#34A853"/>
+  <rect x="0" y="675" width="1200" height="5" fill="#EA4335"/>
+
+  <!-- HEADER -->
+  <text x="60" y="40" font-size="13" font-weight="600" fill="#9AA0A6" letter-spacing="2">ANTHROPIC MYTHOS · DUAL-USE AI · FINANCIAL SYSTEM RISK · ENTERPRISE GOVERNANCE</text>
+  <text x="60" y="82" font-size="40" font-weight="900" fill="#202124" class="h1" opacity="0">The Same AI That Protects Your Bank Can Break It.</text>
+  <text x="60" y="108" font-size="17" fill="#5F6368" class="h2" opacity="0">The dual-use problem nobody is solving · Treasury Secretary Bessent · Fox News · May 2026</text>
+  <line x1="60" y1="124" x2="1140" y2="124" stroke="#DADCE0" stroke-width="1.5"/>
+
+  <!-- CENTRE: Mythos node -->
+  <g class="p1" opacity="0">
+    <rect x="510" y="144" width="180" height="68" rx="10" fill="#E8F0FE" stroke="#4285F4" stroke-width="2"/>
+    <rect x="510" y="144" width="180" height="6" rx="3" fill="#4285F4"/>
+    <text x="600" y="170" font-size="14" font-weight="700" fill="#4285F4" text-anchor="middle">MYTHOS</text>
+    <text x="600" y="188" font-size="12" fill="#202124" text-anchor="middle">AI vulnerability discovery</text>
+    <text x="600" y="203" font-size="12" fill="#202124" text-anchor="middle">at machine speed</text>
+    <circle cx="600" cy="144" r="7" fill="#4285F4" class="pd"/>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="510" y1="178" x2="374" y2="178" stroke="#34A853" stroke-width="2" marker-end="url(#mg)" class="p1" opacity="0"/>
+  <line x1="690" y1="178" x2="824" y2="178" stroke="#EA4335" stroke-width="2" marker-end="url(#mr)" class="p1" opacity="0"/>
+
+  <!-- Travelling dots -->
+  <circle cx="510" cy="178" r="7" fill="#34A853" class="tdl"/>
+  <circle cx="690" cy="178" r="7" fill="#EA4335" class="tdr"/>
+
+  <!-- Defender -->
+  <g class="p2" opacity="0">
+    <rect x="200" y="144" width="170" height="68" rx="8" fill="#E6F4EA" stroke="#34A853" stroke-width="1.5"/>
+    <rect x="200" y="144" width="170" height="6" rx="3" fill="#34A853"/>
+    <text x="285" y="170" font-size="13" font-weight="700" fill="#34A853" text-anchor="middle">DEFENDER</text>
+    <text x="285" y="188" font-size="12" fill="#202124" text-anchor="middle">Finds vulns first</text>
+    <text x="285" y="203" font-size="12" fill="#202124" text-anchor="middle">Patches them</text>
+    <rect x="200" y="226" width="170" height="46" rx="6" fill="#E6F4EA" stroke="#34A853" stroke-width="1"/>
+    <text x="285" y="248" font-size="12" font-weight="600" fill="#34A853" text-anchor="middle">System hardened</text>
+    <text x="285" y="264" font-size="11" fill="#5F6368" text-anchor="middle">Vulnerability patched</text>
+  </g>
+
+  <!-- Attacker -->
+  <g class="p2" opacity="0">
+    <rect x="830" y="144" width="170" height="68" rx="8" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.5"/>
+    <rect x="830" y="144" width="170" height="6" rx="3" fill="#EA4335"/>
+    <text x="915" y="170" font-size="13" font-weight="700" fill="#EA4335" text-anchor="middle">ATTACKER</text>
+    <text x="915" y="188" font-size="12" fill="#202124" text-anchor="middle">Finds same vulns</text>
+    <text x="915" y="203" font-size="12" fill="#202124" text-anchor="middle">Exploits them</text>
+    <rect x="830" y="226" width="170" height="46" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1"/>
+    <text x="915" y="248" font-size="12" font-weight="600" fill="#EA4335" text-anchor="middle">System breached</text>
+    <text x="915" y="264" font-size="11" fill="#5F6368" text-anchor="middle">At machine speed</text>
+  </g>
+
+  <!-- No-distinction label -->
+  <g class="p2" opacity="0">
+    <rect x="510" y="226" width="180" height="46" rx="6" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1"/>
+    <text x="600" y="248" font-size="12" font-weight="600" fill="#92400E" text-anchor="middle">Model does not</text>
+    <text x="600" y="264" font-size="11" fill="#202124" text-anchor="middle">distinguish intent</text>
+  </g>
+
+  <!-- Stats row -->
+  <g class="p3" opacity="0">
+    <rect x="55" y="292" width="348" height="106" rx="10" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.5"/>
+    <rect x="55" y="292" width="5" height="106" rx="2" fill="#EA4335"/>
+    <text x="75" y="318" font-size="36" font-weight="900" fill="#EA4335">71%</text>
+    <text x="75" y="338" font-size="13" fill="#202124">of major banks: increased</text>
+    <text x="75" y="354" font-size="13" fill="#202124">AI-assisted attack sophistication</text>
+    <text x="75" y="374" font-size="11" fill="#9AA0A6">McKinsey Global Banking Review · 2024</text>
+    <text x="75" y="390" font-size="11" font-weight="600" fill="#EA4335">Before Mythos entered the landscape</text>
+
+    <rect x="423" y="292" width="348" height="106" rx="10" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1.5"/>
+    <rect x="423" y="292" width="5" height="106" rx="2" fill="#FBBC05"/>
+    <text x="443" y="318" font-size="36" font-weight="900" fill="#92400E">$5.9M</text>
+    <text x="443" y="338" font-size="13" fill="#202124">avg financial sector breach cost</text>
+    <text x="443" y="354" font-size="13" fill="#202124">highest of any industry sector</text>
+    <text x="443" y="374" font-size="11" fill="#9AA0A6">IBM Cost of a Data Breach · 2024</text>
+    <text x="443" y="390" font-size="11" font-weight="600" fill="#92400E">Before Mythos entered the landscape</text>
+
+    <rect x="791" y="292" width="364" height="106" rx="10" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.5"/>
+    <rect x="791" y="292" width="5" height="106" rx="2" fill="#4285F4"/>
+    <text x="811" y="314" font-size="12" font-weight="700" fill="#4285F4">TREASURY SECRETARY BESSENT</text>
+    <text x="811" y="330" font-size="12" font-weight="700" fill="#4285F4">FOX NEWS · MAY 2026</text>
+    <text x="811" y="352" font-size="13" fill="#202124">"You should be worried about</text>
+    <text x="811" y="368" font-size="13" fill="#202124">AI hacking bank accounts."</text>
+    <text x="811" y="390" font-size="11" fill="#9AA0A6">After JPMorgan · BofA briefing on Mythos</text>
+  </g>
+
+  <!-- Three governance panels -->
+  <g class="p4" opacity="0">
+    <rect x="55" y="416" width="356" height="128" rx="10" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.5"/>
+    <rect x="55" y="416" width="5" height="128" rx="2" fill="#4285F4"/>
+    <text x="75" y="440" font-size="12" font-weight="700" fill="#4285F4">01 · VENDOR ACCOUNTABILITY</text>
+    <text x="75" y="460" font-size="13" fill="#202124">Define liability before deployment.</text>
+    <text x="75" y="478" font-size="13" fill="#202124">AI vendors not accepting liability</text>
+    <text x="75" y="496" font-size="13" fill="#202124">for missed vulnerabilities.</text>
+    <text x="75" y="514" font-size="12" font-weight="600" fill="#4285F4">Know what you are accepting.</text>
+
+    <rect x="431" y="416" width="356" height="128" rx="10" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1.5"/>
+    <rect x="431" y="416" width="5" height="128" rx="2" fill="#FBBC05"/>
+    <text x="451" y="440" font-size="12" font-weight="700" fill="#92400E">02 · SYSTEMIC DISCLOSURE</text>
+    <text x="451" y="460" font-size="13" fill="#202124">Cross-institution view of shared</text>
+    <text x="451" y="478" font-size="13" fill="#202124">attack surface. Individual frameworks</text>
+    <text x="451" y="496" font-size="13" fill="#202124">only see their own slice.</text>
+    <text x="451" y="514" font-size="12" font-weight="600" fill="#92400E">Systemic view is missing.</text>
+
+    <rect x="807" y="416" width="348" height="128" rx="10" fill="#E6F4EA" stroke="#34A853" stroke-width="1.5"/>
+    <rect x="807" y="416" width="5" height="128" rx="2" fill="#34A853"/>
+    <text x="827" y="440" font-size="12" font-weight="700" fill="#34A853">03 · DUAL-USE ACCESS POLICY</text>
+    <text x="827" y="460" font-size="13" fill="#202124">Who has access to offensive</text>
+    <text x="827" y="478" font-size="13" fill="#202124">capability and under what rules.</text>
+    <text x="827" y="496" font-size="13" fill="#202124">Bessent named this publicly.</text>
+    <text x="827" y="514" font-size="12" font-weight="600" fill="#34A853">Policy response has not followed.</text>
+  </g>
+
+  <!-- Bottom -->
+  <g class="bot" opacity="0">
+    <rect x="55" y="562" width="1090" height="34" rx="8" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1"/>
+    <rect x="55" y="562" width="5" height="34" rx="2" fill="#EA4335"/>
+    <text x="600" y="578" font-size="14" font-weight="700" fill="#202124" text-anchor="middle">The same AI that protects your bank can break it.</text>
+    <text x="600" y="592" font-size="12" fill="#5F6368" text-anchor="middle">The accountability architecture for that reality does not exist anywhere in the world right now.</text>
+  </g>
+
+  <text x="600" y="630" font-size="10" fill="#9AA0A6" text-anchor="middle">Source: Treasury Bessent Fox News May 2026 · Anthropic Mythos · McKinsey Global Banking Review 2024 · IBM Cost of Data Breach 2024</text>
+  <text x="600" y="646" font-size="11" fill="#9AA0A6" text-anchor="middle">Created by Vikas Sharma · DigitalWalk · vikas-sharma-digitalwalk.blogspot.com · linkedin.com/in/sharma1vikas · X: @digitalwalk</text>
+</svg>
+</div>
+</body>
+</html>

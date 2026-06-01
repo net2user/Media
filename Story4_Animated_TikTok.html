@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Story 4 Animated - TikTok Remix Governance</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#F1F5F9; display:flex; justify-content:center; align-items:center; min-height:100vh; padding:20px; }
+.wrap { width:1200px; max-width:100%; }
+svg { display:block; width:100%; height:auto; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,.10); }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+@keyframes slideUp { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes growBar { from{width:0} to{width:320px} }
+@keyframes optout  { 0%{transform:translateX(0);opacity:0} 5%{opacity:1} 92%{opacity:1} 100%{transform:translateX(420px);opacity:0} }
+@keyframes c1 { 0%{opacity:0} 8%{opacity:1} 30%{opacity:1} 38%{opacity:0} 100%{opacity:0} }
+@keyframes c2 { 0%{opacity:0} 38%{opacity:0} 46%{opacity:1} 68%{opacity:1} 76%{opacity:0} 100%{opacity:0} }
+@keyframes c3 { 0%{opacity:0} 72%{opacity:0} 80%{opacity:1} 95%{opacity:1} 100%{opacity:0} }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+.h1{animation:fadeIn .6s ease .2s both}
+.h2{animation:fadeIn .6s ease .5s both}
+.p1{animation:slideUp .6s ease .7s both}
+.p2{animation:slideUp .6s ease 1.2s both}
+.p3{animation:slideUp .6s ease 1.7s both}
+.p4{animation:slideUp .6s ease 2.2s both}
+.p5{animation:slideUp .6s ease 2.7s both}
+.p6{animation:slideUp .6s ease 3.2s both}
+.bot{animation:fadeIn .6s ease 3.8s both}
+.fbar{animation:growBar 1.4s ease-out 1.0s both}
+.odot{animation:optout 3.2s ease-in-out .8s infinite}
+.cq1{animation:c1 9s linear 2.8s infinite;opacity:0}
+.cq2{animation:c2 9s linear 2.8s infinite;opacity:0}
+.cq3{animation:c3 9s linear 2.8s infinite;opacity:0}
+.cur{animation:blink .9s step-end infinite}
+</style>
+</head>
+<body>
+<div class="wrap">
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg"
+     font-family="system-ui,-apple-system,sans-serif" text-rendering="optimizeLegibility">
+
+  <rect width="1200" height="700" fill="#FFFFFF"/>
+  <pattern id="dp" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="12" cy="12" r=".8" fill="#E2E8F0"/></pattern>
+  <rect width="1200" height="700" fill="url(#dp)"/>
+  <rect x="0"   y="0" width="300" height="5" fill="#4285F4"/>
+  <rect x="300" y="0" width="300" height="5" fill="#EA4335"/>
+  <rect x="600" y="0" width="300" height="5" fill="#FBBC05"/>
+  <rect x="900" y="0" width="300" height="5" fill="#34A853"/>
+  <rect x="0" y="695" width="1200" height="5" fill="#FBBC05"/>
+
+  <text x="60" y="40" font-size="13" font-weight="600" fill="#9AA0A6" letter-spacing="2">TIKTOK REMIX · PLATFORM GOVERNANCE · CONSENT ARCHITECTURE · DEFAULT OPT-IN</text>
+  <text x="60" y="82" font-size="42" font-weight="900" fill="#202124" class="h1" opacity="0">The Friction Is the Governance.</text>
+  <text x="60" y="108" font-size="17" fill="#5F6368" class="h2" opacity="0">Default opt-in is not a design choice. It is a governance tell. · TikTok Remix · May 2026</text>
+  <line x1="60" y1="124" x2="1140" y2="124" stroke="#DADCE0" stroke-width="1.5"/>
+
+  <!-- LEFT: Opt-out burden -->
+  <g class="p1" opacity="0">
+    <rect x="55" y="138" width="500" height="200" rx="10" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1"/>
+    <text x="305" y="162" font-size="13" font-weight="700" fill="#EA4335" text-anchor="middle">THE OPT-OUT BURDEN · POST BY POST · NO GLOBAL TOGGLE</text>
+    <line x1="68" y1="170" x2="542" y2="170" stroke="#DADCE0" stroke-width=".5"/>
+
+    <rect x="72"  y="180" width="76" height="52" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1"/>
+    <text x="110" y="202" font-size="11" font-weight="700" fill="#EA4335" text-anchor="middle">POST 1</text>
+    <text x="110" y="218" font-size="11" fill="#202124" text-anchor="middle">Disable</text>
+    <text x="110" y="230" font-size="11" fill="#202124" text-anchor="middle">manually</text>
+    <text x="162" y="210" font-size="16" fill="#EA4335">→</text>
+
+    <rect x="174" y="180" width="76" height="52" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1"/>
+    <text x="212" y="202" font-size="11" font-weight="700" fill="#EA4335" text-anchor="middle">POST 2</text>
+    <text x="212" y="218" font-size="11" fill="#202124" text-anchor="middle">Disable</text>
+    <text x="212" y="230" font-size="11" fill="#202124" text-anchor="middle">manually</text>
+    <text x="264" y="210" font-size="16" fill="#EA4335">→</text>
+
+    <rect x="276" y="180" width="76" height="52" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1"/>
+    <text x="314" y="202" font-size="11" font-weight="700" fill="#EA4335" text-anchor="middle">POST 3</text>
+    <text x="314" y="218" font-size="11" fill="#202124" text-anchor="middle">Disable</text>
+    <text x="314" y="230" font-size="11" fill="#202124" text-anchor="middle">manually</text>
+    <text x="366" y="210" font-size="16" fill="#EA4335">→</text>
+
+    <rect x="378" y="180" width="76" height="52" rx="6" fill="#FCE8E6" stroke="#EA4335" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="416" y="208" font-size="11" font-weight="700" fill="#EA4335" text-anchor="middle">POST N</text>
+    <text x="416" y="224" font-size="11" fill="#9AA0A6" text-anchor="middle">∞ posts</text>
+    <text x="468" y="210" font-size="16" fill="#9AA0A6">→</text>
+
+    <rect x="480" y="180" width="62" height="52" rx="6" fill="#F8F9FA" stroke="#9AA0A6" stroke-width="1" stroke-dasharray="3 3"/>
+    <text x="511" y="204" font-size="11" fill="#9AA0A6" text-anchor="middle">Most</text>
+    <text x="511" y="218" font-size="11" fill="#9AA0A6" text-anchor="middle">give up</text>
+    <text x="511" y="230" font-size="11" fill="#9AA0A6" text-anchor="middle">here</text>
+
+    <!-- travelling dot -->
+    <circle cx="72" cy="206" r="7" fill="#FBBC05" class="odot"/>
+
+    <!-- friction bar -->
+    <text x="72" y="256" font-size="12" font-weight="600" fill="#EA4335">FRICTION LOAD ON CREATOR</text>
+    <rect x="72" y="266" width="440" height="14" rx="4" fill="#DADCE0"/>
+    <rect x="72" y="266" width="0" height="14" rx="4" fill="#EA4335" opacity=".5" class="fbar"/>
+    <rect x="72" y="266" width="440" height="14" rx="4" fill="none" stroke="#EA4335" stroke-width="1"/>
+    <text x="400" y="277" font-size="11" font-weight="700" fill="#EA4335">HIGH · by design</text>
+
+    <!-- Gartner stat -->
+    <rect x="72" y="292" width="440" height="36" rx="6" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1"/>
+    <rect x="72" y="292" width="4" height="36" rx="2" fill="#FBBC05"/>
+    <text x="90" y="308" font-size="12" font-weight="700" fill="#92400E">68% of consumers</text>
+    <text x="90" y="323" font-size="12" fill="#202124">would reduce platform use if AI used their content without consent · Gartner 2024</text>
+  </g>
+
+  <!-- LEFT BOTTOM: Default vs Consent -->
+  <g class="p2" opacity="0">
+    <rect x="55" y="352" width="500" height="176" rx="10" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1"/>
+    <text x="305" y="376" font-size="13" font-weight="700" fill="#4285F4" text-anchor="middle">DEFAULT OPT-IN vs INFORMED CONSENT</text>
+    <line x1="68" y1="384" x2="542" y2="384" stroke="#DADCE0" stroke-width=".5"/>
+
+    <rect x="68" y="392" width="232" height="124" rx="8" fill="#FCE8E6" stroke="#EA4335" stroke-width="1"/>
+    <text x="184" y="414" font-size="12" font-weight="700" fill="#EA4335" text-anchor="middle">WHAT TIKTOK DID</text>
+    <text x="184" y="434" font-size="12" fill="#202124" text-anchor="middle">Activated silently</text>
+    <text x="184" y="452" font-size="12" fill="#202124" text-anchor="middle">No notification sent</text>
+    <text x="184" y="470" font-size="12" fill="#202124" text-anchor="middle">No global toggle</text>
+    <text x="184" y="488" font-size="12" fill="#202124" text-anchor="middle">Post-by-post opt-out only</text>
+    <text x="184" y="506" font-size="11" fill="#9AA0A6" text-anchor="middle">Opt-in velocity > consent</text>
+
+    <rect x="316" y="392" width="232" height="124" rx="8" fill="#E6F4EA" stroke="#34A853" stroke-width="1"/>
+    <text x="432" y="414" font-size="12" font-weight="700" fill="#34A853" text-anchor="middle">WHAT CONSENT REQUIRES</text>
+    <text x="432" y="434" font-size="12" fill="#202124" text-anchor="middle">Explicit opt-in before activate</text>
+    <text x="432" y="452" font-size="12" fill="#202124" text-anchor="middle">Clear creator notification</text>
+    <text x="432" y="470" font-size="12" fill="#202124" text-anchor="middle">Global toggle available</text>
+    <text x="432" y="488" font-size="12" fill="#202124" text-anchor="middle">Recourse for derivative harm</text>
+    <text x="432" y="506" font-size="11" fill="#9AA0A6" text-anchor="middle">Governance > participation</text>
+  </g>
+
+  <!-- RIGHT: Cycling three consent questions -->
+  <g class="p3" opacity="0">
+    <rect x="575" y="138" width="575" height="172" rx="10" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1"/>
+    <rect x="575" y="138" width="575" height="6" rx="3" fill="#4285F4"/>
+    <text x="862" y="162" font-size="13" font-weight="700" fill="#4285F4" text-anchor="middle">THREE CONSENT QUESTIONS PLATFORMS COLLAPSE INTO ONE</text>
+  </g>
+
+  <g class="cq1" opacity="0">
+    <rect x="590" y="176" width="544" height="122" rx="8" fill="#FCE8E6"/>
+    <text x="608" y="200" font-size="12" font-weight="700" fill="#EA4335">QUESTION 01 · CREATIVE RIGHTS</text>
+    <text x="608" y="222" font-size="13" fill="#202124">Does publishing a public video mean consenting to AI-generated</text>
+    <text x="608" y="240" font-size="13" fill="#202124">synthetic reinterpretations of your likeness, voice, and creative style</text>
+    <text x="608" y="258" font-size="13" fill="#202124">by unknown users through generative systems?</text>
+    <text x="608" y="280" font-size="12" font-weight="600" fill="#EA4335">Current platform answer: Yes, by default.</text>
+  </g>
+
+  <g class="cq2" opacity="0">
+    <rect x="590" y="176" width="544" height="122" rx="8" fill="#FEF7E0"/>
+    <text x="608" y="200" font-size="12" font-weight="700" fill="#92400E">QUESTION 02 · TRAINING DATA</text>
+    <text x="608" y="222" font-size="13" fill="#202124">TikTok says content not used for model training under US ownership</text>
+    <text x="608" y="240" font-size="13" fill="#202124">guidelines. But creators recognise that "not used for training"</text>
+    <text x="608" y="258" font-size="13" fill="#202124">does not mean "not used for generation."</text>
+    <text x="608" y="280" font-size="12" font-weight="600" fill="#92400E">Two separate questions need two separate consent mechanisms.</text>
+  </g>
+
+  <g class="cq3" opacity="0">
+    <rect x="590" y="176" width="544" height="122" rx="8" fill="#E8F0FE"/>
+    <text x="608" y="200" font-size="12" font-weight="700" fill="#4285F4">QUESTION 03 · RECOURSE AND HARM</text>
+    <text x="608" y="222" font-size="13" fill="#202124">When AI-generated derivatives cause reputational distortion,</text>
+    <text x="608" y="240" font-size="13" fill="#202124">contextual manipulation, or commercial harm — what recourse</text>
+    <text x="608" y="258" font-size="13" fill="#202124">does the creator have? Current answer: effectively none.</text>
+    <text x="608" y="280" font-size="12" font-weight="600" fill="#4285F4">This is where governance architecture is most immature.</text>
+  </g>
+  <rect x="590" y="294" width="2" height="14" fill="#4285F4" class="cur"/>
+
+  <!-- RIGHT MIDDLE: Regulatory window -->
+  <g class="p4" opacity="0">
+    <rect x="575" y="324" width="575" height="96" rx="10" fill="#FEF7E0" stroke="#FBBC05" stroke-width="1.5"/>
+    <rect x="575" y="324" width="5" height="96" rx="2" fill="#FBBC05"/>
+    <text x="593" y="348" font-size="12" font-weight="700" fill="#92400E">THE REGULATORY WINDOW IS OPEN · PLATFORMS KNOW IT</text>
+    <text x="593" y="368" font-size="13" fill="#202124">EU AI Act in force August 2024 · disclosure obligations for AI-generated media ·</text>
+    <text x="593" y="386" font-size="13" fill="#202124">but consent mechanics for creator content remain underdeveloped.</text>
+    <text x="593" y="404" font-size="12" font-weight="600" fill="#92400E">FTC signalled interest in deceptive AI practices · enforcement slower than deployment.</text>
+  </g>
+
+  <!-- RIGHT BOTTOM: Enterprise exposure -->
+  <g class="p5" opacity="0">
+    <rect x="575" y="434" width="575" height="94" rx="10" fill="#E8F0FE" stroke="#4285F4" stroke-width="1.5"/>
+    <rect x="575" y="434" width="5" height="94" rx="2" fill="#4285F4"/>
+    <text x="593" y="458" font-size="12" font-weight="700" fill="#4285F4">THE ENTERPRISE EXPOSURE NOBODY IS GOVERNING</text>
+    <text x="593" y="478" font-size="13" fill="#202124">Employees post branded materials, operational contexts, and professional commentary daily.</text>
+    <text x="593" y="496" font-size="13" fill="#202124">Enterprise AI governance frameworks focused on internal systems have not accounted for this.</text>
+    <text x="593" y="514" font-size="12" font-weight="600" fill="#4285F4">The real exposure boundary was never limited to internal AI systems.</text>
+  </g>
+
+  <!-- BOTTOM -->
+  <g class="bot" opacity="0">
+    <rect x="55" y="546" width="1090" height="34" rx="8" fill="#F8F9FA" stroke="#DADCE0" stroke-width="1"/>
+    <rect x="55" y="546" width="5" height="34" rx="2" fill="#FBBC05"/>
+    <text x="600" y="562" font-size="14" font-weight="700" fill="#202124" text-anchor="middle">The clearest signal of platform priorities is no longer what the policy says.</text>
+    <text x="600" y="577" font-size="13" fill="#5F6368" text-anchor="middle">It is where the friction lives.</text>
+  </g>
+
+  <text x="600" y="614" font-size="10" fill="#9AA0A6" text-anchor="middle">Source: TikTok Remix May 2026 · Gartner Digital Governance Survey 2024 · EU AI Act August 2024 · FTC AI signals 2025-2026</text>
+  <text x="600" y="630" font-size="11" fill="#9AA0A6" text-anchor="middle">Created by Vikas Sharma · DigitalWalk · vikas-sharma-digitalwalk.blogspot.com · linkedin.com/in/sharma1vikas · X: @digitalwalk</text>
+
+</svg>
+</div>
+</body>
+</html>
